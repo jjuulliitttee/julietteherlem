@@ -1,0 +1,1 @@
+mv "Mask Group-$1.png" "project-$1.png"
