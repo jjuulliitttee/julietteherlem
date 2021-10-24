@@ -12,7 +12,10 @@ import ContactButton from './components/ContactButton';
 import { ProjectSelector } from './projectSelector';
 import { AboutMe } from './aboutMe';
 import { ContactMe } from './contactMe';
-import { Link as Scroll } from 'react-scroll';
+import { Home } from './home';
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
+import { BootstrapButton } from './components/MyButton';
+import { ProjectPage } from './components/project';
 /*import Corbel from './assets/fonts/corbel.ttf';
 
 
@@ -38,12 +41,7 @@ const corbel = {
   })
 );*/
 
-const Img = styled('img')({
-  margin: 'auto',
-  display: 'block',
-  minidth: '100%',
-  minHeight: '100%',
-});
+
 
 
 
@@ -113,54 +111,19 @@ function RootApp() {
     <ThemeProvider theme={isDarkMode? darkTheme: lightTheme}>
         <Box minHeight="100vh" overflow="hidden">
           <TopBar/>
-          <Box
-            id="home"
-            marginLeft="135px"
-            marginRight="135px"
-            display="flex"
-            justifyContent="flex-start"
-            height="926px"
-          >
-            <Grid container justifyContent="space-between" alignItems="center" direction="row">
-                <Grid item  xs={4} container direction="column" spacing={1}>
-                  <Grid item>
-                      <Typography variant='body1'>
-                        Hi, I'm Juliette
-                      </Typography>
-                  </Grid>
-                  <Grid item >
-                      <Typography variant='subtitle1' gutterBottom>
-                        I’m a UI/UX designer based in France. 
-                      </Typography>
-                  </Grid>
-                  <Grid item container spacing={1}>
-                    <Grid item>
-                      <img alt="linkedin-logo" src={iconLinkedin} width={31.4} height={31.4}/>
-                    </Grid>
-                    <Grid item>
-                      <img alt="instagram-logo" src={iconInstagram} width={31.4} height={31.4}/>
-                    </Grid>
-                    <Grid item>
-                      <img alt="phone-logo" src={iconPhone} width={31.4} height={31.4}/>
-                    </Grid>
-                    <Grid item>
-                      <img alt="mail-logo" src={iconMail} width={31.4} height={31.4}/>
-                    </Grid>
-                  </Grid>
-                  <Grid item>
-                    <Scroll to="contact" smooth>
-                      <ContactButton/>
-                    </Scroll>
-                  </Grid>
-                </Grid>
-              <Grid item xs={7}>
-                  <Img alt="figma-pic" src={figmaPic} width={926} height={602}/>
-              </Grid>
-            </Grid>
-          </Box>
-          <ProjectSelector/>
-          <AboutMe/>
-          <ContactMe/>
+          <BrowserRouter>
+            <Switch>
+              <Route path="/project/:id">
+                <ProjectPage/>
+              </Route>
+              <Route path="/">
+                <Home/>
+                <ProjectSelector/>
+                <AboutMe/>
+                <ContactMe/>
+              </Route>
+            </Switch>
+          </BrowserRouter>
         </Box>
     </ThemeProvider>
   );

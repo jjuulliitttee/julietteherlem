@@ -4,7 +4,7 @@ import Box, { BoxProps } from "@material-ui/core/Box";
 import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { ProjectType } from "../entities/ProjectType";
-import projects from "../contants/projects";
+import projects from "../constants/projects";
 import { Grid } from "@mui/material";
 
 interface ProjectCardProps {

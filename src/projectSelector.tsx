@@ -5,7 +5,7 @@ import { Box } from "@mui/system"
 import { useState } from "react";
 import { BootstrapButton } from "./components/MyButton";
 import { ProjectCard } from "./components/ProjectCard";
-import projects from "./contants/projects";
+import projects from "./constants/projects";
 import { ProjectType } from "./entities/ProjectType";
 
 export interface projectSelectorProp {}
