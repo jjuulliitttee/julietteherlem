@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
 import Box, { BoxProps } from "@material-ui/core/Box";
-import { Typography } from "@material-ui/core";
+import { Modal, styled, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { ProjectType } from "../entities/ProjectType";
 import projects from "../constants/projects";
 import { Grid } from "@mui/material";
+import {useHistory} from 'react-router-dom';
 
 interface ProjectCardProps {
   className?: string;
@@ -18,6 +19,12 @@ interface Props {
   index: number;
   confidential: boolean;
 }
+
+const Img = styled('img')({
+  display: "block",
+  maxWidth: "100%",
+  maxHeight: "100%",
+});
 
 const useStyles = makeStyles({
     thumbnail: (props: Props) => ({
@@ -63,6 +70,15 @@ const useStyles = makeStyles({
     typeName: {
       fontSize: "18px",
       fontWeight: 700
+    },
+    illustrations: {
+      position: "absolute",
+      left:"25%",
+      width:"50%",
+      height:"100%",
+      display:'flex',
+      justifyContent:"center",
+      alignItems:'center',
     }
 })
 
@@ -74,15 +90,20 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     if (!confidential)
       var {name, type} = projects[index];
     var [over, setOver] = useState(false);
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
     const props = {index, confidential};
     const classes = useStyles(props);
+    const history = useHistory();
   return (
     <Grid item xs={3}>
       <Box
+        onClick={() => {type === ProjectType.ILLUSTRATION ? handleOpen() : history.push(`/project/${index}`)}}
         onMouseEnter={() => setOver(true)}
         onMouseLeave={() => setOver(false)}
         sx={{
-          height: "257px",
+          height: "253px",
           width: "334px",
         }}
         className={classes.thumbnail}
@@ -101,6 +122,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           <Typography className={classes.typeName}>{type}</Typography>
         </Box>
       </Box>
+      <Modal
+        keepMounted
+        open={open}
+        onBackdropClick={handleClose}
+      >
+        <Box className={classes.illustrations}>
+          <Img alt="illlustration" src={`illustrations/illustration-${index}.jpg`}/>
+        </Box>
+      </Modal>
     </Grid>
   );
 };

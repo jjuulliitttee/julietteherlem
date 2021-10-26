@@ -22,8 +22,10 @@ export const BootstrapButton = styled(Button)({
     fontFamily: "Red Hat Display, sans-serif",
     fontWeight: 700,
     height: 62,
-    width: 265,
+    paddingLeft: 51,
+    paddingRight: 51,
     borderRadius: 25,
+    alignSelf:"flex-start",
     backgroundColor: "#F35A50",
     '&:hover': {
       backgroundColor: "#F35A50",

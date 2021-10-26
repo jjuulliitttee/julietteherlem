@@ -19,7 +19,7 @@ export function ThemeButton(){
   
   return (
     <IconButton onClick={toggle} className={classes.button}>
-      {isDarkMode ? <Brightness7Icon/> : <Brightness4Icon/>}
+      {isDarkMode ? <Brightness7Icon/> : <Brightness4Icon sx={{color:"#000"}}/>}
     </IconButton>
   );
 }
