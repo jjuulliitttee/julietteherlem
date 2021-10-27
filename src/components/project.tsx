@@ -1,10 +1,7 @@
 import { Button, styled, Typography } from "@material-ui/core"
 import { makeStyles } from "@material-ui/styles";
-import { Grid, Link, Stack, Theme } from "@mui/material";
-import { Box, grid } from "@mui/system"
-import aboutMePic from "./assets/aboutMe.png"
-import SchoolSharpIcon from '@mui/icons-material/SchoolSharp';
-import FavoriteSharpIcon from '@mui/icons-material/FavoriteSharp';
+import { Stack, Theme } from "@mui/material";
+import { Box } from "@mui/system"
 import { useEffect, useState } from "react";
 import { BootstrapButton } from "../components/MyButton";
 import projects from '../constants/projects';
@@ -25,6 +22,10 @@ const Img = styled('img')({
     display: 'block',
   });
 
+const CustomLink = styled(Lien)({
+    color: 'black'
+})
+
 const useStyles = makeStyles((theme: Theme) => ({
     root: {
       minHeight: "100vh",
@@ -42,8 +43,9 @@ const useStyles = makeStyles((theme: Theme) => ({
       lineHeight: "24px",
     },
     projectImg: {
+        alignSelf: 'flex-start',
         paddingLeft: '206px',
-        borderRadius: '40px'
+        borderRadius: '40px',
     },
     pagePic: {
       minHeight: "100vh",
@@ -69,14 +71,14 @@ export const ProjectPage: React.FC<ProjectPageProps> = () => {
         id="project"
         className={classes.root}
     >
-      <Lien style={{ textDecoration: 'none' }} to="/">
+      <CustomLink style={{ textDecoration: 'none'}} to="/">
         <Stack direction="row" spacing={1} className={classes.goBackButton} >
           <img alt="GoBackPic" width="30px" height="30px" src={isDarkMode ? goBackPicDark : goBackPicLight}/>
           <Typography className={classes.projectDesc}>
               Go back to work
           </Typography>
         </Stack>
-      </Lien>
+      </CustomLink>
     <Box
         paddingLeft="135px"
         paddingRight="135px"

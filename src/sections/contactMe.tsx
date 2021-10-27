@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Input, styled, TextField, Typography } from "@material-ui/core";
 import { makeStyles, ThemeProvider } from "@material-ui/styles";
-import { Theme, Grid } from "@mui/material";
+import { Theme, Grid, Zoom } from "@mui/material";
 import { Box } from "@mui/system"
 import iconInstagram from '../assets/Group 7.svg'
 import iconLinkedin from '../assets/Group 8.svg'
@@ -13,6 +13,8 @@ import emailjs from 'emailjs-com';
 import thankYouPicDark from '../assets/ThankYouPicDark.png';
 import thankYouPicLight from '../assets/ThankYouPicLight.png';
 import { useDarkMode } from 'usehooks-ts';
+import { ContactIcon } from '../components/contactIcon';
+import CheckIcon from '@mui/icons-material/Check';
 
 //import InputUnstyled, { InputUnstyledProps } from '@mui/core/InputUnstyled';
 
@@ -77,12 +79,19 @@ const useStyles = makeStyles((theme: Theme) => ({
       fontFamily: "Corbel, sans-serif",
       lineHeight: "26px",
       display:"block"
+    },
+    iconPopover: {
+      fontFamily: "Corbel_light, sans-serif",
+      fontSize: "13px",
+      padding: "10px",
+      borderRadius: "25px",
     }
   }));
 
 export const ContactMe: React.FC<ContactMeProp> = () => {
     const {isDarkMode} = useDarkMode();
     const classes = useStyles();
+    const [submitted, setSubmitted] = useState(false);
     const [formValues, setFormValues] = useState(defaultValues);
     const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
       const { name, value } = e.target;
@@ -95,6 +104,7 @@ export const ContactMe: React.FC<ContactMeProp> = () => {
 
     const handleSubmit = (event: React.SyntheticEvent) => {
       event.preventDefault();
+      setSubmitted(true);
       emailjs.send("service_nivkbc6", "template_19j9c6s", formValues, "user_nEcYvdvpjW6MnSgXn82HH")
     };
 
@@ -124,18 +134,34 @@ export const ContactMe: React.FC<ContactMeProp> = () => {
                       </Typography>
                   </Grid>
                   <Grid item container spacing={1}>
-                    <Grid item>
-                      <img alt="linkedin-logo" src={iconLinkedin} width={31.4} height={31.4}/>
-                    </Grid>
-                    <Grid item>
-                      <img alt="instagram-logo" src={iconInstagram} width={31.4} height={31.4}/>
-                    </Grid>
-                    <Grid item>
-                      <img alt="phone-logo" src={iconPhone} width={31.4} height={31.4}/>
-                    </Grid>
-                    <Grid item>
-                      <img alt="mail-logo" src={iconMail} width={31.4} height={31.4}/>
-                    </Grid>
+                    <ContactIcon
+                        alt="linkedin-icon"
+                        src={iconLinkedin}
+                        size={31.4}
+                        link="https://www.linkedin.com/in/juliette-herlem-b4bb03177"
+                    >
+                    </ContactIcon>
+                    <ContactIcon
+                      alt="instagram-icon"
+                      src={iconInstagram}
+                      size={31.4}
+                      link="https://www.instagram.com/juliettehrm/"
+                    >
+                    </ContactIcon>
+                    <ContactIcon
+                      alt="phon-icon"
+                      src={iconPhone}
+                      size={31.4}
+                    >
+                      <Typography className={classes.iconPopover} >+33 782556339</Typography>
+                    </ContactIcon>
+                    <ContactIcon
+                      alt="mail-icon"
+                      src={iconMail}
+                      size={31.4}
+                    >
+                      <Typography className={classes.iconPopover} >juliette.herlem@gmail.com</Typography>
+                    </ContactIcon>
                   </Grid>
                 </Grid>
                   <Grid item container xs={6} direction="column">
@@ -198,7 +224,9 @@ export const ContactMe: React.FC<ContactMeProp> = () => {
                           onClick={handleSubmit}
                           type="submit"
                         >
-                          Submit
+                          {submitted ? 
+                          <Zoom in={submitted} style={{ transitionDelay: submitted ? '150ms' : '0ms' }}><CheckIcon fontSize="large"/></Zoom>
+                          : 'Submit'}
                       </BootstrapButton>
                     </form>
                   </Grid>

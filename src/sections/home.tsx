@@ -1,16 +1,12 @@
-import { Box, Grid, makeStyles, styled, SvgIcon, Theme, ThemeProvider, Typography } from '@material-ui/core';
-import { TopBar } from '../components/TopBar';
-import { useDarkMode } from 'usehooks-ts';
-import { createStyles, createTheme } from '@mui/material/styles';
-import { red } from '@material-ui/core/colors';
+import { Box, Grid, makeStyles, styled, Theme, Typography } from '@material-ui/core';
 import iconInstagram from '../assets/Group 7.svg'
 import iconLinkedin from '../assets/Group 8.svg'
 import iconPhone from '../assets/Group.svg'
 import iconMail from '../assets/Group-1.svg'
 import figmaPic from '../assets/imageintro.png'
-import ContactButton from '../components/ContactButton';
 import { Link as Scroll } from 'react-scroll';
 import { BootstrapButton } from '../components/MyButton';
+import { ContactIcon } from '../components/contactIcon';
 
 export interface HomeProp {}
 
@@ -25,6 +21,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     root: {
       minHeight: "100vh",
     },
+    iconPopover: {
+      fontFamily: "Corbel_light, sans-serif",
+      fontSize: "13px",
+      padding: "10px",
+      borderRadius: "25px",
+    }
   }));
 
 export const Home: React.FC<HomeProp> = () => {
@@ -51,18 +53,34 @@ export const Home: React.FC<HomeProp> = () => {
                       </Typography>
                   </Grid>
                   <Grid item container spacing={1}>
-                    <Grid item>
-                      <img alt="linkedin-logo" src={iconLinkedin} width={31.4} height={31.4}/>
-                    </Grid>
-                    <Grid item>
-                      <img alt="instagram-logo" src={iconInstagram} width={31.4} height={31.4}/>
-                    </Grid>
-                    <Grid item>
-                      <img alt="phone-logo" src={iconPhone} width={31.4} height={31.4}/>
-                    </Grid>
-                    <Grid item>
-                      <img alt="mail-logo" src={iconMail} width={31.4} height={31.4}/>
-                    </Grid>
+                    <ContactIcon
+                      alt="linkedin-icon"
+                      src={iconLinkedin}
+                      size={31.4}
+                      link="https://www.linkedin.com/in/juliette-herlem-b4bb03177"
+                    >
+                    </ContactIcon>
+                    <ContactIcon
+                      alt="instagram-icon"
+                      src={iconInstagram}
+                      size={31.4}
+                      link="https://www.instagram.com/juliettehrm/"
+                    >
+                    </ContactIcon>
+                    <ContactIcon
+                      alt="phon-icon"
+                      src={iconPhone}
+                      size={31.4}
+                    >
+                      <Typography className={classes.iconPopover} >+33 782556339</Typography>
+                    </ContactIcon>
+                    <ContactIcon
+                      alt="mail-icon"
+                      src={iconMail}
+                      size={31.4}
+                    >
+                      <Typography className={classes.iconPopover} >juliette.herlem@gmail.com</Typography>
+                    </ContactIcon>
                   </Grid>
                   <Grid item>
                     <Scroll to="contact" smooth>

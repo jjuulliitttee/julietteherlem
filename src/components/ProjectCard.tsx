@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import Box, { BoxProps } from "@material-ui/core/Box";
+import Box from "@material-ui/core/Box";
 import { Modal, styled, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { ProjectType } from "../entities/ProjectType";
@@ -99,7 +99,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <Grid item xs={3}>
       <Box
-        onClick={() => {type === ProjectType.ILLUSTRATION ? handleOpen() : history.push(`/project/${index}`)}}
+        onClick={() => {
+          if (type === ProjectType.ILLUSTRATION)
+            handleOpen()
+          else if (index < projects.length) {
+            history.push(`/project/${index}`)
+          }
+        }}
         onMouseEnter={() => setOver(true)}
         onMouseLeave={() => setOver(false)}
         sx={{

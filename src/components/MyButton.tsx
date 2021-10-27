@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { styled} from '@mui/material/styles';
-import Button, { ButtonProps } from '@mui/material/Button';
+import Button from '@mui/material/Button';
 import { keyframes } from '@mui/styled-engine';
-import { Color } from '@material-ui/core';
 
 const pop = keyframes`
 50% { transform: scale(1.09) }`
@@ -15,7 +14,7 @@ const pulse = keyframes`
   transform: scale(1.1)
 }`
 
-export const BootstrapButton = styled(Button)({
+export const BootstrapButton = styled(Button)(({ theme}) => ({
     boxShadow: "2px 2px 9px 0px #00000040",
     textTransform: 'none',
     fontSize: 26,
@@ -35,4 +34,4 @@ export const BootstrapButton = styled(Button)({
       backgroundColor: '#FFFFFF',
       color: '#000000'
     }
-  });
+  }));

@@ -1,8 +1,5 @@
 import { AppBar, Box, CssBaseline, styled, Toolbar, Link, Typography, Theme } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
-import { PinDropSharp } from "@mui/icons-material";
-import { createStyles } from "@mui/material/styles";
-import { padding } from "@mui/system";
 import { Link as Scroll } from 'react-scroll';
 
 

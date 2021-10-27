@@ -43,7 +43,7 @@ const projects: Project[] = [
             fullType: "UI / UX",
             desc: "For a competition, we proposed a service that permits users and nearby restaurants to avoid food waste.",
             mission: "Creation of the iconography, and the user experience.",
-            date: "August 2019 | 5 co-worker | 3 months",
+            date: "August 2019 | 5 co-workers | 3 months",
             techno: [
                 "/techIcon/figma.png",
                 "/techIcon/illustrator.jpg",
@@ -59,7 +59,7 @@ const projects: Project[] = [
             fullType: "UI / UX - Redesign",
             desc: "With another student, we redesign the website of Gilles Massé from the desktop to the mobile interfaces.",
             mission: "Creation of the user experience, user interface and protoype.",
-            date: "November 2019 | 2 co-worker | 3 weeks",
+            date: "November 2019 | 2 co-workers | 3 weeks",
             techno: [
                 "/techIcon/xd.png",
                 "/techIcon/logo-photoshop-original.png",
@@ -188,7 +188,7 @@ const projects: Project[] = [
             fullType: "UI / UX",
             desc: "For a competition, we proposed a service that permits users and nearby restaurants to avoid food waste.",
             mission: "Creation of the iconography, and the user experience.",
-            date: "August 2019 | 5 co-worker | 3 months",
+            date: "August 2019 | 5 co-workers | 3 months",
             techno: [
                 "/techIcon/figma.png",
                 "/techIcon/illustrator.jpg",
