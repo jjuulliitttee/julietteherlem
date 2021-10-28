@@ -106,7 +106,7 @@ export const ProjectPage: React.FC<ProjectPageProps> = () => {
         </Typography>
         <Stack direction="row" justifyContent="start" spacing={1}>
             {content?.techno.map((elem) => (
-            <Img src={elem} width={41} height={41}/>
+            <Img src={process.env.PUBLIC_URL + elem} width={41} height={41}/>
             ))}
         </Stack>
         {url && <BootstrapButton
@@ -117,10 +117,10 @@ export const ProjectPage: React.FC<ProjectPageProps> = () => {
             Watch Video
         </BootstrapButton>}
       </Stack>
-      <Img alt="projectPic" src={`/thumbails/subnail-${index}.png`} className={classes.projectImg}/>
+      <Img alt="projectPic" src={`${process.env.PUBLIC_URL}/thumbails/subnail-${index}.png`} className={classes.projectImg}/>
     </Box>
   <Box className={classes.pagePic}>
-    <Img  src={content?.pagePic}/>
+    <Img  src={process.env.PUBLIC_URL + content?.pagePic}/>
   </Box>
   </div>
     );

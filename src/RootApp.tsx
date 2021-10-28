@@ -74,7 +74,7 @@ function RootApp() {
     <ThemeProvider theme={isDarkMode? darkTheme: lightTheme}>
         <Box minHeight="100vh" overflow="hidden">
           <TopBar/>
-          <BrowserRouter>
+          <BrowserRouter basename="/jherlem">
             <Switch>
               <Route path="/project/:id">
                 <ProjectPage/>
