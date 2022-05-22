@@ -1,46 +1,38 @@
-import { AppBar, Box, CssBaseline, styled, Toolbar, Link, Typography, Theme } from "@material-ui/core";
+import { AppBar, Box, CssBaseline, styled, Toolbar, Link, Typography} from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
+import { useLocation} from "react-router";
 import { Link as Scroll } from 'react-scroll';
-
-
+import {Link as Lien} from 'react-router-dom';
 import { ThemeButton } from "./themeButton";
-
-/*const theme = createTheme({
-  Link: {
-    body1: {
-      fontFamily: 'Red Hat Display, sans-serif',
-      fontWeight: 500,
-    },
-    button: {
-      fontStyle: 'italic',
-    },
-  },
-});*/
-
+import { Theme } from "@mui/material";
 
 export interface TopBarProp {}
 
-
 const StyledToolbar = styled(Toolbar)({
   alignItems: 'flex-end',
-  height: 96,
-  paddingLeft: 135,
-  paddingRight: 135
+  height: '9.1vh',
+  paddingLeft: '7vw',
+  paddingRight: '7vw'
 });
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme: Theme) => ({
   toolbarLink: {
-      fontSize: '22px',
+      fontSize: '2.04vh',
       fontWeight: 500,
     '&:hover': {
       fontWeight: 700
-   }
+   },
+  },
+  customLink: {
+    color: theme.palette.mode === 'dark' ? 'white' : 'black'
   }
-})
+}));
 
 export const TopBar: React.FC<TopBarProp> = () => {
     const classes = useStyles();
-
+    const match = useLocation();
+    const project = Boolean(match.pathname !==  "/");
+    console.log(project);
     return (
       <CssBaseline>
       <AppBar
@@ -56,36 +48,44 @@ export const TopBar: React.FC<TopBarProp> = () => {
             </Typography>
           <Box sx={{ flexGrow: 1 }}/>
           <Box 
-            sx={{minWidth:"500px", display:"flex", justifyContent:"space-evenly"}}
+            sx={{minWidth:"26.04vw", display:"flex", justifyContent:"space-evenly"}}
           >
           <ThemeButton/>
           <Scroll to="home" smooth>
-          <Typography>
-            <Link underline="hover" color="inherit" className={classes.toolbarLink}>
-              Home
-            </Link>
-          </Typography>
+            <Lien className={classes.customLink} style={{ textDecoration: 'none'}} to={project ? "/" : ""}>
+              <Typography>
+                <Link underline="hover" color="inherit" className={classes.toolbarLink}>
+                  Home
+                </Link>
+              </Typography>
+            </Lien>
           </Scroll>
           <Scroll to="Project-Selector" smooth>
-            <Typography>
-              <Link underline="hover" color="inherit" className={classes.toolbarLink}>
-                Work
-              </Link>
-            </Typography>
+            <Lien className={classes.customLink} style={{ textDecoration: 'none'}} to={project ? "/" : ""}>
+              <Typography>
+                <Link underline="hover" color="inherit" className={classes.toolbarLink}>
+                  Work
+                </Link>
+              </Typography>
+            </Lien>
           </Scroll>
           <Scroll to="about" smooth>
-          <Typography>
-            <Link underline="hover" color="inherit" className={classes.toolbarLink}>
-              About
-            </Link>
-          </Typography>
+            <Lien className={classes.customLink} style={{ textDecoration: 'none'}} to={project ? "/" : ""}>
+            <Typography>
+              <Link underline="hover" color="inherit" className={classes.toolbarLink}>
+                About
+              </Link>
+            </Typography>
+            </Lien>
           </Scroll>
           <Scroll to="contact" smooth>
+          <Lien className={classes.customLink} style={{ textDecoration: 'none'}} to={project ? "/" : ""}>
           <Typography>
             <Link underline="hover" color="inherit" className={classes.toolbarLink}>
               Contact
             </Link>
           </Typography>
+          </Lien>
           </Scroll>
           </Box>
         </StyledToolbar>

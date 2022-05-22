@@ -1,11 +1,10 @@
-import { Button, styled, Typography } from "@material-ui/core"
+import { styled, Typography } from "@material-ui/core"
 import { makeStyles } from "@material-ui/styles";
-import { Grid, Link, Stack, Theme } from "@mui/material";
-import { Box, grid } from "@mui/system"
+import { Grid, Stack, Theme } from "@mui/material";
+import { Box } from "@mui/system"
 import aboutMePic from "../assets/aboutMe.png"
 import SchoolSharpIcon from '@mui/icons-material/SchoolSharp';
 import FavoriteSharpIcon from '@mui/icons-material/FavoriteSharp';
-import { useState } from "react";
 import { BootstrapButton } from "../components/MyButton";
 
 export interface AboutMeProp {}
@@ -24,15 +23,15 @@ const useStyles = makeStyles((theme: Theme) => ({
   aboutMeDesc: {
     fontFamily: "Corbel_bold, sans-serif",
     fontWeight: 700,
-    fontSize: "20px",
+    fontSize: "1.85vh",
     width: "75%",
-    lineHeight: "24px",
+    lineHeight: "2.222vh",
   },
   interestText: {
     fontFamily: "Corbel_bold, sans-serif",
     fontWeight: 700,
-    fontSize: "20px",
-    lineHeight: "24px",
+    fontSize: "1.85vh",
+    lineHeight: "2.222vh",
   }
 }));
 
@@ -44,22 +43,22 @@ export const AboutMe: React.FC<AboutMeProp> = () => {
     className={classes.root}
   >
     <Box
-        paddingLeft="135px"
-        paddingRight="135px"
-        paddingTop="166px"
-        paddingBottom="231px"
+        paddingLeft="7vw"
+        paddingRight="7vw"
+        paddingTop="15.37vh"
+        paddingBottom="21.38vh"
         width="100%"
         display="flex"
         flexDirection="row"
     >
       <Stack direction="column" spacing={1}>
-        <Typography variant="body1" style={{marginBottom:"13px", lineHeight:"65px"}}>
+        <Typography variant="body1" style={{marginBottom:"1.20vh", lineHeight:"6.01vh"}}>
           About me
         </Typography>
-        <Typography variant="subtitle1" style={{marginBottom:"59px"}}>
+        <Typography variant="subtitle1" style={{marginBottom:"5.46vh"}}>
           UI/UX Designer
         </Typography>
-        <Typography className={classes.aboutMeDesc} style={{marginBottom:"59px"}}>
+        <Typography className={classes.aboutMeDesc} style={{marginBottom:"5.46vh"}}>
         I'm a multidisciplinary digital designer, based in France, 
 focused on UI/UX design and graphic design.
         </Typography>
@@ -106,7 +105,7 @@ focused on UI/UX design and graphic design.
           </Grid>
         </Grid>
         <BootstrapButton
-            style={{backgroundColor: "#FF9345", marginTop:"109px"}}
+            style={{backgroundColor: "#FF9345", marginTop:"10.09vh"}}
             variant="contained"
             onClick={() => {
               const link = document.createElement("a");
@@ -118,8 +117,7 @@ focused on UI/UX design and graphic design.
             Download CV
         </BootstrapButton>
       </Stack>
-      <Img alt="aboutme" src={aboutMePic} width={841
-      } height={732}/>
+      <Img alt="aboutme" src={aboutMePic} style={{maxWidth:"43.8vw", maxHeight: "67.777vh"}}/>
     </Box>
   </div>
 )}

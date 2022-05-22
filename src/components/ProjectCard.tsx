@@ -28,7 +28,7 @@ const Img = styled('img')({
 
 const useStyles = makeStyles({
     thumbnail: (props: Props) => ({
-      backgroundSize: "contain",
+      backgroundSize: "cover",
       boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
       borderRadius: "25px",
       backgroundRepeat: "no-repeat",
@@ -38,37 +38,39 @@ const useStyles = makeStyles({
       }
     }),
     tagbox: {
-     marginTop: "23px",
-     marginLeft: "28px",
-     paddingTop:"5px",
-     paddingBottom:"5px",
-     paddingLeft:"22px",
-     paddingRight:"22px",
+     marginTop: "2.12vh",
+     marginLeft: "1.45vw",
+     paddingTop:"0.46vh",
+     paddingBottom:"0.46vh",
+     paddingLeft:"1.14vw",
+     paddingRight:"1.14vw",
      background: "#FFFFFF",
      boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
      borderRadius: "17px",
      color: "#071030"
     },
     typeBox: {
-      marginTop:"20px",
-      marginLeft: "28px",
-      marginBottom: "23px",
-      marginRight: "28px",
-      paddingTop:"5px",
-      paddingBottom:"5px",
-      paddingLeft:"22px",
-      paddingRight:"22px",
+      marginTop:"1.85vh",
+      marginLeft: "1.45vw",
+      marginBottom: "2.12vh",
+      marginRight: "1.45vw",
+      paddingTop:"0.46vh",
+      paddingBottom:"0.46vh",
+      paddingLeft:"1.14vw",
+      paddingRight:"1.14vw",
       background: "#000000",
       boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
       borderRadius: "17px",
       color: "#FFFFFF"
     },
     tagName: {
-      fontSize: "22px",
+      fontSize: "2vh",
+      lineHeight: "2.7vh",
       fontWeight: 700
     },
     typeName: {
-      fontSize: "18px",
+      fontSize: "1.666vh",
+      lineHeight: "2.7vh",
       fontWeight: 700
     },
     illustrations: {
@@ -109,8 +111,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         onMouseEnter={() => setOver(true)}
         onMouseLeave={() => setOver(false)}
         sx={{
-          height: "253px",
-          width: "334px",
+          height: "25vh",
+          width: "17.39vw",
         }}
         className={classes.thumbnail}
         id={`Project-${index}`}

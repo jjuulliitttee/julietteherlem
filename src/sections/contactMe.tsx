@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { Input, styled, TextField, Typography } from "@material-ui/core";
-import { makeStyles, ThemeProvider } from "@material-ui/styles";
+import { Input, styled, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
 import { Theme, Grid, Zoom } from "@mui/material";
 import { Box } from "@mui/system"
 import iconInstagram from '../assets/Group 7.svg'
 import iconLinkedin from '../assets/Group 8.svg'
 import iconPhone from '../assets/Group.svg'
 import iconMail from '../assets/Group-1.svg'
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { BootstrapButton } from "../components/MyButton";
 import emailjs from 'emailjs-com';
 import thankYouPicDark from '../assets/ThankYouPicDark.png';
@@ -15,8 +15,6 @@ import thankYouPicLight from '../assets/ThankYouPicLight.png';
 import { useDarkMode } from 'usehooks-ts';
 import { ContactIcon } from '../components/contactIcon';
 import CheckIcon from '@mui/icons-material/Check';
-
-//import InputUnstyled, { InputUnstyledProps } from '@mui/core/InputUnstyled';
 
 export interface ContactMeProp {}
 
@@ -27,39 +25,12 @@ const Img = styled('img')({
   position: 'absolute',
 });
 
-interface FormValues {
-  name?: string;
-  subject?: string;
-  email?: string;
-  message?: string;
-}
-
-/*const defaultValues: FormValues =  {
-  name: "",
-  subject: "",
-  email: "",
-  message: ""
-}*/
-
 const defaultValues = {
   name: "",
   subject: "",
   email: "",
   message: ""
 }
-
-/*const CustomField = styled(Input)((theme: Theme) => ({
-  width: '200px',
-  background: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1E2E68',
-  borderRadius: "25px",
-}));*/
-
-/*const CustomInput = React.forwardRef((
-  props: InputUnstyledProps,
-  ref: React.ForwardedRef<HTMLDivElement>,
-) => 
-    <InputUnstyled components={{ Input: StyledInputElement }} {...props} ref={ref} />
-);*/
 
 const useStyles = makeStyles((theme: Theme) => ({
     root: {
@@ -68,23 +39,24 @@ const useStyles = makeStyles((theme: Theme) => ({
       display: 'flex'
     },
     formInput: {
-      paddingTop: "21px",
-      paddingBottom: "14px",
-      paddingLeft: "31px",
+      paddingTop: "1.9444vh",
+      paddingBottom: "1.3vh",
+      paddingLeft: "1.61vw",
       borderRadius: "25px",
       boxShadow: "2px 2px 9px rgba(0, 0, 0, 0.25)",
       background: theme.palette.mode === 'dark' ? '#1E2E68' : '#FFFFFF',
-      fontSize: "22px",
+      fontSize: "2.04vh",
       fontWeight: 400,
       fontFamily: "Corbel, sans-serif",
-      lineHeight: "26px",
+      lineHeight: "2.4vh",
       display:"block"
     },
     iconPopover: {
       fontFamily: "Corbel_light, sans-serif",
-      fontSize: "13px",
+      fontSize: "1.20vh",
       padding: "10px",
       borderRadius: "25px",
+      lineHeight: "2.22vh"
     }
   }));
 
@@ -114,51 +86,51 @@ export const ContactMe: React.FC<ContactMeProp> = () => {
       id="contact"
     >
      <Box
-          paddingLeft="135px"
-          paddingRight="429px"
-          paddingTop="223px"
-          paddingBottom="231px"
+          paddingLeft="7vw"
+          paddingRight="22.34vw"
+          paddingTop="20.45vh"
+          paddingBottom="21.19vh"
           width="100%"
           display="flex"
       >
         <Grid container justifyContent="space-between" direction="row">
                 <Grid item  xs={6} container direction="column" spacing={1}>
                   <Grid item>
-                      <Typography style={{lineHeight:"66px", fontSize:"50px"}} variant='body1'>
+                      <Typography variant='body1'>
                         Get in touch !
                       </Typography>
                   </Grid>
                   <Grid item >
-                      <Typography style={{lineHeight:"33px"}} variant='subtitle1' gutterBottom>
+                      <Typography style={{lineHeight:"3.05vh"}} variant='subtitle1' gutterBottom>
                         If you have any inquiries,<br/> I would be happy to hear you !
                       </Typography>
                   </Grid>
                   <Grid item container spacing={1}>
                     <ContactIcon
-                        alt="linkedin-icon"
-                        src={iconLinkedin}
-                        size={31.4}
-                        link="https://www.linkedin.com/in/juliette-herlem-b4bb03177"
+                      alt="linkedin-icon"
+                      src={iconLinkedin}
+                      style={{width:"1.635vw", height:"2.907vh"}}
+                      link="https://www.linkedin.com/in/juliette-herlem-b4bb03177"
                     >
                     </ContactIcon>
                     <ContactIcon
                       alt="instagram-icon"
                       src={iconInstagram}
-                      size={31.4}
+                      style={{width:"1.635vw", height:"2.907vh"}}
                       link="https://www.instagram.com/juliettehrm/"
                     >
                     </ContactIcon>
                     <ContactIcon
                       alt="phon-icon"
                       src={iconPhone}
-                      size={31.4}
+                      style={{width:"1.635vw", height:"2.907vh"}}
                     >
                       <Typography className={classes.iconPopover} >+33 782556339</Typography>
                     </ContactIcon>
                     <ContactIcon
                       alt="mail-icon"
                       src={iconMail}
-                      size={31.4}
+                      style={{width:"1.635vw", height:"2.907vh"}}
                     >
                       <Typography className={classes.iconPopover} >juliette.herlem@gmail.com</Typography>
                     </ContactIcon>
@@ -201,7 +173,7 @@ export const ContactMe: React.FC<ContactMeProp> = () => {
                             onChange={handleInputChange}
                             disableUnderline
                             className={classes.formInput}
-                            style={{marginTop: "30px"}}
+                            style={{marginTop: "2.778vh"}}
                           />
                       </Grid>
                       <Grid item>
@@ -213,13 +185,13 @@ export const ContactMe: React.FC<ContactMeProp> = () => {
                             onChange={handleInputChange}
                             disableUnderline
                             className={classes.formInput}
-                            style={{marginTop: "30px"}}
+                            style={{marginTop: "2.778vh"}}
                             multiline
                             rows={9}
                           />
                       </Grid>
                       <BootstrapButton
-                          style={{backgroundColor: "#ED4CEE", marginTop:"65px"}}
+                          style={{backgroundColor: "#ED4CEE", marginTop:"6.02vh"}}
                           variant="contained"
                           onClick={handleSubmit}
                           type="submit"
@@ -232,8 +204,8 @@ export const ContactMe: React.FC<ContactMeProp> = () => {
                   </Grid>
             </Grid>
         </Box>
-        {isDarkMode ? <Img alt="thankYouDark" src={thankYouPicDark} width="490px" height="276px"/> :
-        <Img alt="thankYouLight" src={thankYouPicLight} width="490px" height="276px"/>
+        {isDarkMode ? <Img alt="thankYouDark" src={thankYouPicDark} style={{width:"25.52vw", height:"25.555vh"}}/> :
+        <Img alt="thankYouLight" src={thankYouPicLight} style={{width:"25.52vw", height:"25.555vh"}}/>
         }
     </div>
   )}

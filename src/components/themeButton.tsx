@@ -6,7 +6,7 @@ import {useDarkMode} from 'usehooks-ts';
 
 const useStyles = makeStyles({
   button: {
-     paddingTop: "29px"
+     paddingTop: "2.68vh"
   }
 })
 

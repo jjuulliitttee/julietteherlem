@@ -30,15 +30,16 @@ function RootApp() {
       },
       body1: {
         fontWeight: 900,
-        fontSize: '48px'
+        fontSize: '4.44vh',
+        lineHeight: '6.11vh',
       },
       subtitle1: {
         fontWeight: 'bold',
-        fontSize: '25px'
+        fontSize: '2.31vh'
       },
       subtitle2: {
         fontWeight: 'bold',
-        fontSize: '36px'
+        fontSize: '3.33vh'
       }
     },
     })
@@ -57,15 +58,16 @@ function RootApp() {
         },
         body1: {
           fontWeight: 900,
-          fontSize: '48px'
+          fontSize: '4.44vh',
+          lineHeight: '6.11vh',
         },
         subtitle1: {
           fontWeight: 'bold',
-          fontSize: '25px'
+          fontSize: '2.31vh'
         },
         subtitle2: {
           fontWeight: 'bold',
-          fontSize: '36px'
+          fontSize: '3.33vh'
         }
       },
    })  
@@ -73,8 +75,8 @@ function RootApp() {
   return (
     <ThemeProvider theme={isDarkMode? darkTheme: lightTheme}>
         <Box minHeight="100vh" overflow="hidden">
-          <TopBar/>
           <BrowserRouter basename="/jherlem">
+          <TopBar/>
             <Switch>
               <Route path="/project/:id">
                 <ProjectPage/>

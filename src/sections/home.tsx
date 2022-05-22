@@ -15,6 +15,7 @@ const Img = styled('img')({
     display: 'block',
     minidth: '100%',
     minHeight: '100%',
+    float: 'right',
   });
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -23,9 +24,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     iconPopover: {
       fontFamily: "Corbel_light, sans-serif",
-      fontSize: "13px",
+      fontSize: "1.20vh",
       padding: "10px",
       borderRadius: "25px",
+      lineHeight: "2.22vh"
     }
   }));
 
@@ -34,11 +36,11 @@ export const Home: React.FC<HomeProp> = () => {
     return (
         <Box
             id="home"
-            marginLeft="135px"
-            marginRight="135px"
+            marginLeft="7vw"
+            marginRight="7vw"
             display="flex"
             justifyContent="flex-start"
-            height="926px"
+            height="85.7vh"
           >
             <Grid container justifyContent="space-between" alignItems="center" direction="row">
                 <Grid item  xs={4} container direction="column" spacing={1}>
@@ -56,42 +58,42 @@ export const Home: React.FC<HomeProp> = () => {
                     <ContactIcon
                       alt="linkedin-icon"
                       src={iconLinkedin}
-                      size={31.4}
+                      style={{width:"1.635vw", height:"2.907vh"}}
                       link="https://www.linkedin.com/in/juliette-herlem-b4bb03177"
                     >
                     </ContactIcon>
                     <ContactIcon
                       alt="instagram-icon"
                       src={iconInstagram}
-                      size={31.4}
+                      style={{width:"1.635vw", height:"2.907vh"}}
                       link="https://www.instagram.com/juliettehrm/"
                     >
                     </ContactIcon>
                     <ContactIcon
                       alt="phon-icon"
                       src={iconPhone}
-                      size={31.4}
+                      style={{width:"1.635vw", height:"2.907vh"}}
                     >
                       <Typography className={classes.iconPopover} >+33 782556339</Typography>
                     </ContactIcon>
                     <ContactIcon
                       alt="mail-icon"
                       src={iconMail}
-                      size={31.4}
+                      style={{width:"1.635vw", height:"2.907vh"}}
                     >
                       <Typography className={classes.iconPopover} >juliette.herlem@gmail.com</Typography>
                     </ContactIcon>
                   </Grid>
                   <Grid item>
                     <Scroll to="contact" smooth>
-                      <BootstrapButton style={{backgroundColor: "#5FE46C", marginTop:"150px", }} variant="contained">
+                      <BootstrapButton style={{backgroundColor: "#5FE46C", marginTop:"13.88vh", }} variant="contained">
                         Get in touch !
                       </BootstrapButton>
                     </Scroll>
                   </Grid>
                 </Grid>
-              <Grid item xs={7}>
-                  <Img alt="figma-pic" src={figmaPic} width={926} height={602}/>
+              <Grid item xs={7} >
+                  <Img alt="figma-pic" style={{maxWidth:"46vw", maxHeight: "55.7vh"}} src={figmaPic}/>
               </Grid>
             </Grid>
           </Box>

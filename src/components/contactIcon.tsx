@@ -3,17 +3,17 @@ import { useState } from 'react';
 
 export interface ContactIconProps {
     src: string
-    size: number
     alt: string
     link?: string
+    style: React.CSSProperties;
 }
 
 export const ContactIcon: React.FC<ContactIconProps> = ({
     children,
     src,
-    size,
     alt,
-    link
+    link,
+    style
 }) => {
     const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -27,10 +27,10 @@ export const ContactIcon: React.FC<ContactIconProps> = ({
         <Grid item>
           {link ?
             <Link href={link}>
-              <img alt={alt} src={src} width={size} height={size}/>
+              <img alt={alt} src={src} style={style}/>
             </Link> : 
             <Box onClick={handleClick}>
-               <img alt={alt} src={src} width={size} height={size}/>
+               <img alt={alt} src={src} style={style}/>
             </Box>
           }
           <Popover

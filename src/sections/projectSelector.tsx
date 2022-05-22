@@ -1,4 +1,4 @@
-import { Button, Typography } from "@material-ui/core"
+import { Typography } from "@material-ui/core"
 import { makeStyles } from "@material-ui/styles";
 import { Grid, Link, Stack, Theme } from "@mui/material";
 import { Box } from "@mui/system"
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: "#FFFFFF",
     fontWeight:500,
     fontFamily:"Red Hat Display, sans-serif",
-    fontSize:"25px",
+    fontSize:"2.31vh",
     '&:hover': {
       color: "#F35A50",
       fontWeight: 700
@@ -52,18 +52,18 @@ export const ProjectSelector: React.FC<projectSelectorProp> = () => {
       className={classes.root}
     >
       <Box
-          paddingLeft="135px"
-          paddingRight="135px"
-          paddingTop="231px"
-          paddingBottom="231px"
+          paddingLeft="7vw"
+          paddingRight="7vw "
+          paddingTop="21.38vh"
+          paddingBottom="21.38vh"
           width="100%"
       >
         <Typography variant='body1'>
           Some Project
         </Typography>
         <Box sx={{
-          marginTop:"96px",
-          marginLeft:"516px",
+          marginTop:"9.88vh",
+          marginLeft:"26.87vw",
           }}>
           <Stack spacing={7} direction="row" justifyContent="flex-start">
             <Link onClick={() => {setProjectType(ProjectType.UIUX); setSelectEverything(false);}} component="button" color="inherit" underline="hover" className={classes.selectorLinks}>UI/UX</Link>
@@ -73,7 +73,7 @@ export const ProjectSelector: React.FC<projectSelectorProp> = () => {
           </Stack>
           </Box>
           <Box
-            marginTop="50px"
+            marginTop="4.62vh"
             width="100%"
           >
           <Grid container justifyContent="center" rowSpacing={8} columnSpacing={7}>
@@ -96,7 +96,7 @@ export const ProjectSelector: React.FC<projectSelectorProp> = () => {
           >
             <BootstrapButton
               sx={{
-                marginTop:"109px"
+                marginTop:"10.09vh"
               }}
               variant="contained"
               onClick={() => {

@@ -79,7 +79,7 @@ const projects: Project[] = [
                 "/techIcon/illustrator.jpg",
                 "/techIcon/logo-photoshop-original.png",
             ],
-            pagePic: "/pagePic/square.png"
+            pagePic: "/pagePic/square room.png"
         }
     },
     {
