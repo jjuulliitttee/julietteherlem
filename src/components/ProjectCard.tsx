@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Box from "@material-ui/core/Box";
-import { Modal, styled, Typography } from "@material-ui/core";
+import { Modal, styled, Typography, useMediaQuery, useTheme  } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { ProjectType } from "../entities/ProjectType";
 import projects from "../constants/projects";
@@ -38,46 +38,57 @@ const useStyles = makeStyles({
       }
     }),
     tagbox: {
-     marginTop: "2.12vh",
-     marginLeft: "1.45vw",
-     paddingTop:"0.46vh",
-     paddingBottom:"0.46vh",
-     paddingLeft:"1.14vw",
-     paddingRight:"1.14vw",
+      marginTop: "23px",
+      marginLeft: "28px",
+      paddingTop:"5px",
+      paddingBottom:"5px",
+      paddingLeft:"22px",
+      paddingRight:"22px",
      background: "#FFFFFF",
      boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
      borderRadius: "17px",
      color: "#071030"
     },
     typeBox: {
-      marginTop:"1.85vh",
-      marginLeft: "1.45vw",
-      marginBottom: "2.12vh",
-      marginRight: "1.45vw",
-      paddingTop:"0.46vh",
-      paddingBottom:"0.46vh",
-      paddingLeft:"1.14vw",
-      paddingRight:"1.14vw",
+      marginTop:"20px",
+      marginLeft: "28px",
+      marginBottom: "23px",
+      marginRight: "28px",
+      paddingTop:"5px",
+      paddingBottom:"5px",
+      paddingLeft:"22px",
+      paddingRight:"22px",
       background: "#000000",
       boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
       borderRadius: "17px",
       color: "#FFFFFF"
     },
     tagName: {
-      fontSize: "2vh",
+      fontSize: "22px",
       lineHeight: "2.7vh",
       fontWeight: 700
     },
     typeName: {
-      fontSize: "1.666vh",
+      fontSize: "18px",
       lineHeight: "2.7vh",
       fontWeight: 700
     },
-    illustrations: {
+    illustrationsDesktop: {
       position: "absolute",
-      left:"25%",
-      width:"50%",
+      top:"50%",
+      left:"50%",
       height:"100%",
+      transform:"translate(-50%, -50%)",
+      display:'flex',
+      justifyContent:"center",
+      alignItems:'center',
+    },
+    illustrationsMobile: {
+      position:"absolute",
+      top:"50%",
+      left:"50%",
+      width:"100%",
+      transform:"translate(-50%, -50%)",
       display:'flex',
       justifyContent:"center",
       alignItems:'center',
@@ -98,8 +109,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     const props = {index, confidential};
     const classes = useStyles(props);
     const history = useHistory();
+    const theme = useTheme();
+    const desktop = useMediaQuery(theme.breakpoints.up('lg'))
   return (
-    <Grid item xs={3}>
+    <Grid item xl={3} lg={4} md={12} sm={12}>
       <Box
         onClick={() => {
           if (type === ProjectType.ILLUSTRATION)
@@ -110,10 +123,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         }}
         onMouseEnter={() => setOver(true)}
         onMouseLeave={() => setOver(false)}
-        sx={{
-          height: "25vh",
-          width: "17.39vw",
+        sx={desktop ? {
+          height: "253px",
+          width: "334px",
+        } : {
+          width: "100%",
+          paddingTop:"75%"
         }}
+        justifySelf="center"
         className={classes.thumbnail}
         id={`Project-${index}`}
       >
@@ -135,9 +152,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         open={open}
         onBackdropClick={handleClose}
       >
-        <Box className={classes.illustrations}>
+      <Box className={desktop ? classes.illustrationsDesktop : classes.illustrationsMobile}>
           <Img alt="illlustration" src={`illustrations/illustration-${index}.jpg`}/>
-        </Box>
+      </Box>
       </Modal>
     </Grid>
   );

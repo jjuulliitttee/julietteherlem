@@ -1,4 +1,4 @@
-import { styled, Typography } from "@material-ui/core"
+import { styled, Typography, useMediaQuery, useTheme } from "@material-ui/core"
 import { makeStyles } from "@material-ui/styles";
 import { Stack, Theme } from "@mui/material";
 import { Box } from "@mui/system"
@@ -38,11 +38,15 @@ const useStyles = makeStyles((theme: Theme) => ({
       fontWeight: 400,
       lineHeight: "2.22vh",
     },
-    projectImg: {
+    projectImgDesktop: {
         alignSelf: 'flex-start',
         paddingLeft: '10.73vw',
         borderRadius: '40px',
     },
+    projectImgMobile: {
+      alignSelf: 'flex-start',
+      borderRadius: '40px',
+  },
     pagePic: {
       minHeight: "100vh",
     },
@@ -55,7 +59,8 @@ export const ProjectPage: React.FC<ProjectPageProps> = () => {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
-
+    const theme = useTheme();
+    const desktop = useMediaQuery(theme.breakpoints.up('xl'))
     const {isDarkMode} = useDarkMode();
     const {id} = useParams<ProjectParams>();
     const index: number = +id;
@@ -66,10 +71,12 @@ export const ProjectPage: React.FC<ProjectPageProps> = () => {
     if (type !== ProjectType.ILLUSTRATION)
         var content = projects[index].content;
     return (
-    <div
-        id="project"
-        className={classes.root}
-    >
+      <div
+      id="project"
+      className={classes.root}
+      >
+      {desktop ?
+      <div>
       <Lien className={classes.customLink} style={{ textDecoration: 'none'}} to="/">
         <Stack direction="row" spacing={1} className={classes.goBackButton} >
           <img alt="GoBackPic" style={{width:"1.56vw", height:"2.778vh"}} src={isDarkMode ? goBackPicDark : goBackPicLight}/>
@@ -113,15 +120,71 @@ export const ProjectPage: React.FC<ProjectPageProps> = () => {
             variant="contained"
             href={url}
           >
-            Watch Video
+            {content?.button}
         </BootstrapButton>}
       </Stack>
       <Box flexGrow={1}/>
-      <Img alt="projectPic" style={{maxWidth:"82.41vw", maxHeight: "52.5vh"}} src={`${process.env.PUBLIC_URL}/thumbails/subnail-${index}.png`} className={classes.projectImg}/>
+      <Img alt="projectPic" style={{maxWidth:"82.41vw", maxHeight: "52.5vh"}} src={`${process.env.PUBLIC_URL}/thumbails/subnail-${index}.png`} className={classes.projectImgDesktop}/>
     </Box>
   <Box className={classes.pagePic}>
     <Img style={{maxWidth:"100vw"}}  src={process.env.PUBLIC_URL + content?.pagePic}/>
   </Box>
   </div>
-    );
+  : 
+  <div>
+      <Lien className={classes.customLink} style={{ textDecoration: 'none'}} to="/">
+        <Stack direction="row" spacing={1} className={classes.goBackButton} >
+          <img alt="GoBackPic" style={{width:"40px", height:"40px"}} src={isDarkMode ? goBackPicDark : goBackPicLight}/>
+          <Typography className={classes.projectDesc}>
+              Go back to work
+          </Typography>
+        </Stack>
+      </Lien>
+    <Box
+        paddingLeft="7vw"
+        paddingRight="7vw"
+        paddingTop="9.52vh"
+        paddingBottom="231px"
+        width="100%"
+        display="flex"
+        flexDirection="column"
+    >
+      <Stack direction="column" spacing={1} style={{width:"100%"}}>
+        <Typography variant="body1" style={{marginBottom:"1.2vh", lineHeight:"6.02vh"}}>
+          {name}
+        </Typography>
+        <Typography variant="subtitle1" style={{marginBottom:"2.31vh"}}>
+          {content?.fullType}
+        </Typography>
+        <Typography className={classes.projectDesc} style={{marginBottom:"0.74vh"}}>
+            {content?.desc}
+        </Typography>
+        <Typography component="div" className={classes.projectDesc} style={{marginBottom:"0.833vh"}}>
+            <Box display="inline" fontFamily="Corbel_bold, sans-serif" fontWeight={700}>My mission : </Box>{content?.mission}
+        </Typography>
+        <Typography className={classes.projectDesc} style={{marginBottom:"5.46vh", fontFamily:"Corbel, sans-serif" ,fontWeight:300}}>
+            {content?.date}
+        </Typography>
+        <Img alt="projectPic" style={{width:"100%", marginBottom:"3vh"}} src={`${process.env.PUBLIC_URL}/thumbails/subnail-${index}.png`} className={classes.projectImgMobile}/>
+        <Stack direction="row" justifyContent="start" spacing={6}>
+            {content?.techno.map((elem) => (
+            <Img src={process.env.PUBLIC_URL + elem} style={{width:"10%"}}/>
+            ))}
+        </Stack>
+        {url && <BootstrapButton
+            style={{backgroundColor: "#20E0EE", marginTop:"4.09vh"}}
+            variant="contained"
+            href={url}
+          >
+            {content?.button}
+        </BootstrapButton>}
+      </Stack>
+      <Box flexGrow={1}/>
+    </Box>
+    <Box className={classes.pagePic}>
+    <Img style={{maxWidth:"100vw"}}  src={process.env.PUBLIC_URL + content?.pagePic}/>
+    </Box>
+</div>
+  }
+    </div>);
 };

@@ -1,4 +1,4 @@
-import { Box, Grid, makeStyles, styled, Theme, Typography } from '@material-ui/core';
+import { Box, Grid, makeStyles, styled, Theme, Typography, useMediaQuery, useTheme } from '@material-ui/core';
 import iconInstagram from '../assets/Group 7.svg'
 import iconLinkedin from '../assets/Group 8.svg'
 import iconPhone from '../assets/Group.svg'
@@ -32,16 +32,19 @@ const useStyles = makeStyles((theme: Theme) => ({
   }));
 
 export const Home: React.FC<HomeProp> = () => {
+    const theme = useTheme();
     const classes = useStyles();
+    const mobile = useMediaQuery(theme.breakpoints.up('xl'))
     return (
         <Box
             id="home"
-            marginLeft="7vw"
-            marginRight="7vw"
+            marginLeft={mobile ?"7vw" : "0"}
+            marginRight={mobile ?"7vw" : "0"}
             display="flex"
-            justifyContent="flex-start"
+            justifyContent={mobile ? "flex-start" : "center"}
             height="85.7vh"
           >
+            {mobile ?
             <Grid container justifyContent="space-between" alignItems="center" direction="row">
                 <Grid item  xs={4} container direction="column" spacing={1}>
                   <Grid item>
@@ -54,7 +57,7 @@ export const Home: React.FC<HomeProp> = () => {
                         I’m a UI/UX designer based in France. 
                       </Typography>
                   </Grid>
-                  <Grid item container spacing={1}>
+                  <Grid item container spacing={2}>
                     <ContactIcon
                       alt="linkedin-icon"
                       src={iconLinkedin}
@@ -95,6 +98,59 @@ export const Home: React.FC<HomeProp> = () => {
               <Grid item xs={7} >
                   <Img alt="figma-pic" style={{maxWidth:"46vw", maxHeight: "55.7vh"}} src={figmaPic}/>
               </Grid>
-            </Grid>
+            </Grid> : 
+            <Grid  xs={12} container direction="column" alignItems="center" justifyContent='center' spacing={3}>
+                  <Grid item>
+                    <Img alt="figma-pic" style={{maxWidth:"100vw", width: "100%",maxHeight: "55.7vh", paddingBottom: "100px"}} src={figmaPic}/>
+                  </Grid>
+                  <Grid item>
+                      <Typography variant='body1' align="center">
+                        Hi, I'm Juliette
+                      </Typography>
+                  </Grid>
+                  <Grid item >
+                      <Typography variant='subtitle1' gutterBottom align="center">
+                        I’m a UI/UX designer based in France. 
+                      </Typography>
+                  </Grid>
+                  <Grid justifyContent='center' item container spacing={6}>
+                    <ContactIcon
+                      alt="linkedin-icon"
+                      src={iconLinkedin}
+                      style={{width:"70px"}}
+                      link="https://www.linkedin.com/in/juliette-herlem-b4bb03177"
+                    >
+                    </ContactIcon>
+                    <ContactIcon
+                      alt="instagram-icon"
+                      src={iconInstagram}
+                      style={{width:"70px"}}
+                      link="https://www.instagram.com/juliettehrm/"
+                    >
+                    </ContactIcon>
+                    <ContactIcon
+                      alt="phon-icon"
+                      src={iconPhone}
+                      style={{width:"70px"}}
+                    >
+                      <Typography className={classes.iconPopover} >+33 782556339</Typography>
+                    </ContactIcon>
+                    <ContactIcon
+                      alt="mail-icon"
+                      src={iconMail}
+                      style={{width:"70px"}}
+                    >
+                      <Typography className={classes.iconPopover} >juliette.herlem@gmail.com</Typography>
+                    </ContactIcon>
+                  </Grid>
+                  <Grid item>
+                    <Scroll to="contact" smooth>
+                      <BootstrapButton style={{backgroundColor: "#5FE46C", marginTop:"13.88vh", }} variant="contained">
+                        Get in touch !
+                      </BootstrapButton>
+                    </Scroll>
+                  </Grid>
+                </Grid>
+            }
           </Box>
     )}

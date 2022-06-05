@@ -1,6 +1,7 @@
 import { styled} from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import { keyframes } from '@mui/styled-engine';
+import { useMediaQuery } from '@material-ui/core';
 
 const pop = keyframes`
 50% { transform: scale(1.09) }`
@@ -12,9 +13,9 @@ export const BootstrapButton = styled(Button)(({ theme}) => ({
     fontFamily: "Red Hat Display, sans-serif",
     fontWeight: 700,
     height: '5.74vh',
-    paddingLeft: '2.65vw',
-    paddingRight: '2.65vw',
-    borderRadius: 25,
+    paddingLeft: 51,
+    paddingRight: 51,
+    borderRadius: useMediaQuery(theme.breakpoints.up('xl')) ? 25 : 100,
     alignSelf:"flex-start",
     backgroundColor: "#F35A50",
     '&:hover': {

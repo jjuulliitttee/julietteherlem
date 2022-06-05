@@ -1,10 +1,11 @@
-import { AppBar, Box, CssBaseline, styled, Toolbar, Link, Typography} from "@material-ui/core";
+import { AppBar, Box, CssBaseline, styled, Toolbar, Link, Typography, useMediaQuery, useTheme} from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { useLocation} from "react-router";
 import { Link as Scroll } from 'react-scroll';
 import {Link as Lien} from 'react-router-dom';
 import { ThemeButton } from "./themeButton";
 import { Theme } from "@mui/material";
+import { BurgerMenu } from "./menuBurger";
 
 export interface TopBarProp {}
 
@@ -30,6 +31,8 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export const TopBar: React.FC<TopBarProp> = () => {
     const classes = useStyles();
+    const theme = useTheme();
+    const mobile = useMediaQuery(theme.breakpoints.up('xl'))
     const match = useLocation();
     const project = Boolean(match.pathname !==  "/");
     console.log(project);
@@ -47,10 +50,10 @@ export const TopBar: React.FC<TopBarProp> = () => {
               </Link>
             </Typography>
           <Box sx={{ flexGrow: 1 }}/>
-          <Box 
+          <ThemeButton/>
+          {mobile ? <Box 
             sx={{minWidth:"26.04vw", display:"flex", justifyContent:"space-evenly"}}
           >
-          <ThemeButton/>
           <Scroll to="home" smooth>
             <Lien className={classes.customLink} style={{ textDecoration: 'none'}} to={project ? "/" : ""}>
               <Typography>
@@ -87,7 +90,10 @@ export const TopBar: React.FC<TopBarProp> = () => {
           </Typography>
           </Lien>
           </Scroll>
-          </Box>
+          </Box> : 
+          <BurgerMenu
+            project
+          />}
         </StyledToolbar>
       </AppBar>
       </CssBaseline>

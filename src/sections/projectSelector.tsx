@@ -1,4 +1,4 @@
-import { Typography } from "@material-ui/core"
+import { Typography, useMediaQuery, useTheme } from "@material-ui/core"
 import { makeStyles } from "@material-ui/styles";
 import { Grid, Link, Stack, Theme } from "@mui/material";
 import { Box } from "@mui/system"
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: "#FFFFFF",
     fontWeight:500,
     fontFamily:"Red Hat Display, sans-serif",
-    fontSize:"2.31vh",
+    fontSize: "2.31vh",
     '&:hover': {
       color: "#F35A50",
       fontWeight: 700
@@ -36,6 +36,8 @@ export const ProjectSelector: React.FC<projectSelectorProp> = () => {
   const [selectEverything, setSelectEverything] = useState(false);
   const [projectType, setProjectType] = useState<ProjectType | "">("");
   const classes = useStyles();
+  const theme = useTheme();
+  const desktop = useMediaQuery(theme.breakpoints.up('xl'))
   
   var projectIndex: number[] = [];
   if (!projectType)
@@ -46,6 +48,7 @@ export const ProjectSelector: React.FC<projectSelectorProp> = () => {
         projectIndex.push(i);
     }
   }
+  projectIndex = projectIndex.filter(index => !projects[index].hidden)
     return (
     <div
       id="Project-Selector"
@@ -57,38 +60,59 @@ export const ProjectSelector: React.FC<projectSelectorProp> = () => {
           paddingTop="21.38vh"
           paddingBottom="21.38vh"
           width="100%"
+          justifyContent="center"
       >
         <Typography variant='body1'>
           Some Project
         </Typography>
+        {desktop ?
         <Box sx={{
           marginTop:"9.88vh",
-          marginLeft:"26.87vw",
           }}>
-          <Stack spacing={7} direction="row" justifyContent="flex-start">
+          <Stack spacing={7} direction="row" justifyContent="center">
             <Link onClick={() => {setProjectType(ProjectType.UIUX); setSelectEverything(false);}} component="button" color="inherit" underline="hover" className={classes.selectorLinks}>UI/UX</Link>
             <Link onClick={() => {setProjectType(ProjectType.GRAPHIC); setSelectEverything(false);}} component="button" color="inherit" underline="hover" className={classes.selectorLinks}>Graphic</Link>
             <Link onClick={() => {setProjectType(ProjectType.AUDIOVISUAL); setSelectEverything(false);}} component="button" color="inherit" underline="hover" className={classes.selectorLinks}>Audiovisual</Link>
             <Link onClick={() => {setProjectType(ProjectType.ILLUSTRATION); setSelectEverything(false);}} component="button" color="inherit"  underline="hover" className={classes.selectorLinks}>Illustration</Link>
+            <Link onClick={() => {setProjectType(ProjectType.GAME); setSelectEverything(false);}} component="button" color="inherit"  underline="hover" className={classes.selectorLinks}>Game</Link>
           </Stack>
+          </Box> :
+          <Box sx={{
+            marginTop:"5.46vh",
+            justifyContent:"center"
+            }}>
+            <Grid container spacing={1} direction="row" justifyContent="center" textAlign="center">
+              <Grid item xs={12} sm={4}>
+                <Link onClick={() => {setProjectType(ProjectType.UIUX); setSelectEverything(false);}} component="button" color="inherit" underline="hover" className={classes.selectorLinks}>UI/UX</Link>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <Link onClick={() => {setProjectType(ProjectType.GRAPHIC); setSelectEverything(false);}} component="button" color="inherit" underline="hover" className={classes.selectorLinks}>Graphic</Link>
+              </Grid >
+              <Grid item xs={12} sm={4}>
+                <Link onClick={() => {setProjectType(ProjectType.AUDIOVISUAL); setSelectEverything(false);}} component="button" color="inherit" underline="hover" className={classes.selectorLinks}>Audiovisual</Link>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <Link onClick={() => {setProjectType(ProjectType.ILLUSTRATION); setSelectEverything(false);}} component="button" color="inherit"  underline="hover" className={classes.selectorLinks}>Illustration</Link>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <Link onClick={() => {setProjectType(ProjectType.GAME); setSelectEverything(false);}} component="button" color="inherit"  underline="hover" className={classes.selectorLinks}>Game</Link>
+              </Grid>
+            </Grid>
           </Box>
+        }
           <Box
-            marginTop="4.62vh"
+            marginTop="50px"
             width="100%"
+            justifyContent="center"
           >
-          <Grid container justifyContent="center" rowSpacing={8} columnSpacing={7}>
+          <Grid container justifyContent="center" rowSpacing={8} columnSpacing={{lg: 7, md: 0}}>
             {projectIndex.map((number) => (
             <ProjectCard
               index={number}
               everything={selectEverything}
-              confidential={false}
+              confidential={projects[number].confidential ? true : false}
             />
             ))}
-            {selectEverything &&
-              <ProjectCard
-                index={14}
-                confidential
-            />}
           </Grid>
           <Box
             display={selectEverything ? "none" : "flex"}
@@ -96,7 +120,7 @@ export const ProjectSelector: React.FC<projectSelectorProp> = () => {
           >
             <BootstrapButton
               sx={{
-                marginTop:"10.09vh"
+                marginTop:"109px"
               }}
               variant="contained"
               onClick={() => {

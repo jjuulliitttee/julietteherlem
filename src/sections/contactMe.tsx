@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Input, styled, Typography } from "@material-ui/core";
+import { Input, styled, Typography, useMediaQuery, useTheme} from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { Theme, Grid, Zoom } from "@mui/material";
 import { Box } from "@mui/system"
@@ -63,6 +63,8 @@ const useStyles = makeStyles((theme: Theme) => ({
 export const ContactMe: React.FC<ContactMeProp> = () => {
     const {isDarkMode} = useDarkMode();
     const classes = useStyles();
+    const theme = useTheme();
+    const desktop = useMediaQuery(theme.breakpoints.up('xl'))
     const [submitted, setSubmitted] = useState(false);
     const [formValues, setFormValues] = useState(defaultValues);
     const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
@@ -85,7 +87,7 @@ export const ContactMe: React.FC<ContactMeProp> = () => {
       className={classes.root}
       id="contact"
     >
-     <Box
+     {desktop ? <Box
           paddingLeft="7vw"
           paddingRight="22.34vw"
           paddingTop="20.45vh"
@@ -105,7 +107,7 @@ export const ContactMe: React.FC<ContactMeProp> = () => {
                         If you have any inquiries,<br/> I would be happy to hear you !
                       </Typography>
                   </Grid>
-                  <Grid item container spacing={1}>
+                  <Grid item container spacing={2}>
                     <ContactIcon
                       alt="linkedin-icon"
                       src={iconLinkedin}
@@ -204,6 +206,122 @@ export const ContactMe: React.FC<ContactMeProp> = () => {
                   </Grid>
             </Grid>
         </Box>
+        :
+      <Box
+        paddingLeft="7vw"
+        paddingRight="7vw"
+        paddingTop="20.45vh"
+        paddingBottom="21.19vh"
+        width="100%"
+        display="flex"
+    >
+      <Grid container justifyContent="space-between" direction="column">
+                <Grid item>
+                    <Typography variant='body1'>
+                      Get in touch !
+                    </Typography>
+                </Grid>
+                <Grid item >
+                    <Typography style={{lineHeight:"3.05vh"}} variant='subtitle1' gutterBottom>
+                      If you have any inquiries,<br/> I would be happy to hear you !
+                    </Typography>
+                </Grid>
+                <Grid item container marginTop="3vh" marginBottom="3vh" spacing={2}>
+                  <ContactIcon
+                    alt="linkedin-icon"
+                    src={iconLinkedin}
+                    style={{width:"70px"}}
+                    link="https://www.linkedin.com/in/juliette-herlem-b4bb03177"
+                  >
+                  </ContactIcon>
+                  <ContactIcon
+                    alt="instagram-icon"
+                    src={iconInstagram}
+                    style={{width:"70px"}}
+                    link="https://www.instagram.com/juliettehrm/"
+                  >
+                  </ContactIcon>
+                  <ContactIcon
+                    alt="phon-icon"
+                    src={iconPhone}
+                    style={{width:"70px"}}
+                  >
+                    <Typography className={classes.iconPopover} >+33 782556339</Typography>
+                  </ContactIcon>
+                  <ContactIcon
+                    alt="mail-icon"
+                    src={iconMail}
+                    style={{width:"70px"}}
+                  >
+                    <Typography className={classes.iconPopover} >juliette.herlem@gmail.com</Typography>
+                  </ContactIcon>
+                </Grid>
+                  <form>
+                      <Grid item>
+                        <Input
+                            id="name-input"
+                            name="name"
+                            placeholder="Your name"
+                            type="text"
+                            value={formValues.name}
+                            onChange={handleInputChange}
+                            disableUnderline
+                            className={classes.formInput}
+                          />
+                      </Grid>
+                      <Grid item>
+                        <Input
+                            id="email-input"
+                            name="email"
+                            placeholder="Email adresse"
+                            type="email"
+                            value={formValues.email}
+                            onChange={handleInputChange}
+                            disableUnderline
+                            className={classes.formInput}
+                            style={{marginTop: "2.778vh"}}
+                          />
+                      </Grid>
+                    <Grid item>
+                      <Input
+                          id="subject-input"
+                          name="subject"
+                          placeholder="Subject"
+                          value={formValues.subject}
+                          onChange={handleInputChange}
+                          disableUnderline
+                          className={classes.formInput}
+                          style={{marginTop: "2.778vh"}}
+                          />
+                    </Grid>
+                    <Grid item>
+                      <Input
+                          id="message-input"
+                          name="message"
+                          placeholder="Message"
+                          value={formValues.message}
+                          onChange={handleInputChange}
+                          disableUnderline
+                          className={classes.formInput}
+                          style={{marginTop: "2.778vh"}}
+                          multiline
+                          rows={9}
+                          />
+                    </Grid>
+                    <BootstrapButton
+                        style={{backgroundColor: "#ED4CEE", marginTop:"6.02vh"}}
+                        variant="contained"
+                        onClick={handleSubmit}
+                        type="submit"
+                      >
+                        {submitted ? 
+                        <Zoom in={submitted} style={{ transitionDelay: submitted ? '150ms' : '0ms' }}><CheckIcon fontSize="large"/></Zoom>
+                        : 'Submit'}
+                    </BootstrapButton>
+                  </form>
+          </Grid>
+      </Box>             
+        }
         {isDarkMode ? <Img alt="thankYouDark" src={thankYouPicDark} style={{width:"25.52vw", height:"25.555vh"}}/> :
         <Img alt="thankYouLight" src={thankYouPicLight} style={{width:"25.52vw", height:"25.555vh"}}/>
         }

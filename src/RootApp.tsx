@@ -1,4 +1,4 @@
-import { Box, ThemeProvider, } from '@material-ui/core';
+import { Box, ThemeProvider} from '@material-ui/core';
 import { TopBar } from './components/TopBar';
 import { useDarkMode } from 'usehooks-ts';
 import { createTheme } from '@mui/material/styles';
