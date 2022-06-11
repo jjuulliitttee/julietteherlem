@@ -54,7 +54,7 @@ const projects: Project[] = [
                 "/techIcon/illustrator.jpg",
                 "/techIcon/logo-photoshop-original.png",
             ],
-            pagePic: "/pagePic/Bring and eat.png"
+            pagePic: "/pagePic/BringAndEat.jpg"
         }
     },
     {
@@ -69,7 +69,7 @@ const projects: Project[] = [
                 "/techIcon/xd.png",
                 "/techIcon/logo-photoshop-original.png",
             ],
-            pagePic: "/pagePic/gilles masse.png"
+            pagePic: "/pagePic/gillesMasse.png"
         }
     },
     {
@@ -84,7 +84,7 @@ const projects: Project[] = [
                 "/techIcon/illustrator.jpg",
                 "/techIcon/logo-photoshop-original.png",
             ],
-            pagePic: "/pagePic/square room.png"
+            pagePic: "/pagePic/squareRoom.png"
         }
     },
     {
@@ -100,7 +100,7 @@ const projects: Project[] = [
             techno: [
                 "/techIcon/fcp.png",
             ],
-            pagePic: "/pagePic/intuitive robot.png"
+            pagePic: "/pagePic/intuitiveRobot.png"
         }
     },
     {
@@ -124,14 +124,14 @@ const projects: Project[] = [
             techno: [
                 "/techIcon/processing3.png",
             ],
-            pagePic: "/pagePic/splash light.png"
+            pagePic: "/pagePic/splashLight.png"
         }
     },
     {
         name: "Patatap",
         type:ProjectType.AUDIOVISUAL,
         url:"https://ateliernum.github.io/projet_patatap_1819/Herlem_Juliette/index.html",
-        urlType: LinkType.PROTOTYPE,
+        urlType: LinkType.PROTOTYPE_DESKTOP,
         content: {
             fullType: "Audiovisual - Experience",
             desc: "I have created a synesthesia experience allying sound and image: each letter of the keyboard make a sound and an animation.",
@@ -157,7 +157,7 @@ const projects: Project[] = [
             techno: [
                 "/techIcon/TouchDesigner_logo.png",
             ],
-            pagePic: "/pagePic/together.png"
+            pagePic: "/pagePic/together.jpg"
         }
     },
     {
@@ -174,7 +174,7 @@ const projects: Project[] = [
                 "/techIcon/illustrator.jpg",
                 "/techIcon/logo-photoshop-original.png",
             ],
-            pagePic: "/pagePic/neil wilson.png"
+            pagePic: "/pagePic/neilWilson.png"
         }
     },
     {
@@ -188,7 +188,7 @@ const projects: Project[] = [
             techno: [
                 "/techIcon/affinity.png",
             ],
-            pagePic: "/pagePic/black swan.png"
+            pagePic: "/pagePic/blackSwan.png"
         }
     },
     {
@@ -238,7 +238,26 @@ const projects: Project[] = [
                 "/techIcon/qgis-logo.png"
             ],
             pagePic: "/pagePic/Comapper.jpg",
-            button: "try the prototype"
+            button: "Try the prototype"
+        }
+    },
+    {
+        name: "Effet Papillon",
+        type:ProjectType.GAME,
+        url:"https://4cbf4010-8f8d-4281-beb3-97a13dd6e5be.filesusr.com/ugd/6fd505_725b91ed188a4062bdd7513db39213e2.pdf",
+        urlType: LinkType.PROTOTYPE,
+        content: {
+            fullType: "Game - Graphic - UI UX",
+            desc: "Effet Papillon (Butterfly Effect) is a fun and educational board game, which raises awareness about threatened and depreciated species. This game is my end of studies project, conceived and designed during my master's degree.",
+            mission: "Game design, content, UI UX and graphic design, print, users and experts interviews and tests, prototype... (the whole project)",
+            date: "February 2022 | Alone | 1 year",
+            techno: [
+                "/techIcon/figma.png",
+                "/techIcon/illustrator.jpg",
+                "/techIcon/logo-InDesign.png"
+            ],
+            pagePic: "/pagePic/EffetPapillon.jpg",
+            button: "Download the print version"
         }
     }
 ];

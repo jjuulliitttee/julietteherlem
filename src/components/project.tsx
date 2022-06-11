@@ -11,6 +11,7 @@ import {Link as Lien} from 'react-router-dom';
 import goBackPicDark from '../assets/GoBackDark.png';
 import goBackPicLight from '../assets/GoBackLight.png';
 import { useDarkMode } from 'usehooks-ts';
+import { LinkType } from "../entities/LinkType";
 
 interface ProjectPageProps {}
 
@@ -67,9 +68,14 @@ export const ProjectPage: React.FC<ProjectPageProps> = () => {
     const classes = useStyles();
     var {name, type} = projects[index];
     if (projects[index].url)
-        var url = projects[index].url;
+    var url = projects[index].url;
     if (type !== ProjectType.ILLUSTRATION)
-        var content = projects[index].content;
+      var content = projects[index].content;
+    var mobilePagePic = content?.pagePic;
+    if (content?.pagePic) {
+        var i = content.pagePic.lastIndexOf('.');
+        mobilePagePic = content?.pagePic.slice(0, i) + '-m' + content?.pagePic.slice(i);
+    } 
     return (
       <div
       id="project"
@@ -120,7 +126,7 @@ export const ProjectPage: React.FC<ProjectPageProps> = () => {
             variant="contained"
             href={url}
           >
-            {content?.button}
+            {content?.button ? content.button : projects[index].urlType!}
         </BootstrapButton>}
       </Stack>
       <Box flexGrow={1}/>
@@ -171,18 +177,18 @@ export const ProjectPage: React.FC<ProjectPageProps> = () => {
             <Img src={process.env.PUBLIC_URL + elem} style={{width:"10%"}}/>
             ))}
         </Stack>
-        {url && <BootstrapButton
+        {url && projects[index].urlType !== LinkType.PROTOTYPE_DESKTOP && <BootstrapButton
             style={{backgroundColor: "#20E0EE", marginTop:"4.09vh"}}
             variant="contained"
             href={url}
           >
-            {content?.button}
+            {content?.button ? content.button : projects[index].urlType!}
         </BootstrapButton>}
       </Stack>
       <Box flexGrow={1}/>
     </Box>
     <Box className={classes.pagePic}>
-    <Img style={{maxWidth:"100vw"}}  src={process.env.PUBLIC_URL + content?.pagePic}/>
+    <Img style={{width:"100%"}}  src={process.env.PUBLIC_URL + mobilePagePic}/>
     </Box>
 </div>
   }

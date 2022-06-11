@@ -35,7 +35,6 @@ export const TopBar: React.FC<TopBarProp> = () => {
     const mobile = useMediaQuery(theme.breakpoints.up('xl'))
     const match = useLocation();
     const project = Boolean(match.pathname !==  "/");
-    console.log(project);
     return (
       <CssBaseline>
       <AppBar

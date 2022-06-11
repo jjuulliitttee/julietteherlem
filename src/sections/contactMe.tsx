@@ -22,7 +22,13 @@ const Img = styled('img')({
   objectFit: 'contain',
   alignSelf: 'end',
   right: '0px',
-  position: 'absolute',
+  position: 'absolute'
+});
+
+const ImgMobile = styled('img')({
+  objectFit: 'contain',
+  alignSelf: 'end',
+  right: '0px'
 });
 
 const defaultValues = {
@@ -82,12 +88,13 @@ export const ContactMe: React.FC<ContactMeProp> = () => {
       emailjs.send("service_nivkbc6", "template_19j9c6s", formValues, "user_nEcYvdvpjW6MnSgXn82HH")
     };
 
+    if (desktop) {
     return (
     <div
       className={classes.root}
       id="contact"
     >
-     {desktop ? <Box
+     <Box
           paddingLeft="7vw"
           paddingRight="22.34vw"
           paddingTop="20.45vh"
@@ -206,15 +213,24 @@ export const ContactMe: React.FC<ContactMeProp> = () => {
                   </Grid>
             </Grid>
         </Box>
-        :
+          {isDarkMode ? <Img alt="thankYouDark" src={thankYouPicDark} style={{width:"25.52vw", height:"25.555vh"}}/> :
+          <Img alt="thankYouLight" src={thankYouPicLight} style={{width:"25.52vw", height:"25.555vh"}}/>
+          }
+        </div>)}
+      else {
+      return (
+      <div
+        className={classes.root}
+        id="contact"
+      >
       <Box
         paddingLeft="7vw"
         paddingRight="7vw"
         paddingTop="20.45vh"
-        paddingBottom="21.19vh"
+        paddingBottom="5.19vh"
         width="100%"
         display="flex"
-    >
+      >
       <Grid container justifyContent="space-between" direction="column">
                 <Grid item>
                     <Typography variant='body1'>
@@ -319,11 +335,13 @@ export const ContactMe: React.FC<ContactMeProp> = () => {
                         : 'Submit'}
                     </BootstrapButton>
                   </form>
+                <Grid item> 
+                  {isDarkMode ?
+                    <ImgMobile alt="thankYouDark" src={thankYouPicDark} style={{width:"80%", marginLeft:"30%"}}/> :
+                    <ImgMobile alt="thankYouLight" src={thankYouPicLight} style={{width:"80%", marginLeft:"30%"}}/>
+                  }
+                </Grid>
           </Grid>
       </Box>             
-        }
-        {isDarkMode ? <Img alt="thankYouDark" src={thankYouPicDark} style={{width:"25.52vw", height:"25.555vh"}}/> :
-        <Img alt="thankYouLight" src={thankYouPicLight} style={{width:"25.52vw", height:"25.555vh"}}/>
-        }
     </div>
-  )}
+  )}}

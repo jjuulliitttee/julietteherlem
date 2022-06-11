@@ -40,6 +40,7 @@ const classes = useStyles();
   };
   const handleClose = () => {
     setAnchorEl(null);
+    console.log(anchorEl);
   };
 
   return (
@@ -66,7 +67,7 @@ const classes = useStyles();
       >
         <MenuItem onClick={handleClose}>
             <Scroll to="home" smooth>
-            <Lien className={classes.customLink} style={{ textDecoration: 'none'}} to={project ? "/" : ""}>
+            <Lien onClick={handleClose} className={classes.customLink} style={{ textDecoration: 'none'}} to={project ? "/" : ""}>
               <Typography>
                 <Link underline="none" color="inherit" className={classes.toolbarLink}>
                   Home
@@ -77,7 +78,7 @@ const classes = useStyles();
         </MenuItem>
         <MenuItem onClick={handleClose}>
         <Scroll to="Project-Selector" smooth>
-            <Lien className={classes.customLink} style={{ textDecoration: 'none'}} to={project ? "/" : ""}>
+            <Lien onClick={handleClose} className={classes.customLink} style={{ textDecoration: 'none'}} to={project ? "/" : ""}>
               <Typography>
                 <Link underline="none" color="inherit" className={classes.toolbarLink}>
                   Work
@@ -88,7 +89,7 @@ const classes = useStyles();
         </MenuItem>
         <MenuItem onClick={handleClose}>
         <Scroll to="about" smooth>
-            <Lien className={classes.customLink} style={{ textDecoration: 'none'}} to={project ? "/" : ""}>
+            <Lien onClick={handleClose} className={classes.customLink} style={{ textDecoration: 'none'}} to={project ? "/" : ""}>
             <Typography>
               <Link underline="none" color="inherit" className={classes.toolbarLink}>
                 About
@@ -99,7 +100,7 @@ const classes = useStyles();
         </MenuItem>
         <MenuItem>
         <Scroll to="contact" smooth>
-          <Lien className={classes.customLink} style={{ textDecoration: 'none'}} to={project ? "/" : ""}>
+          <Lien onClick={handleClose} className={classes.customLink} style={{ textDecoration: 'none'}} to={project ? "/" : ""}>
           <Typography>
             <Link underline="none" color="inherit" className={classes.toolbarLink}>
               Contact
