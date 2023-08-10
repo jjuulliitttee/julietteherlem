@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 export const Home: React.FC<HomeProp> = () => {
     const theme = useTheme();
     const classes = useStyles();
-    const mobile = useMediaQuery(theme.breakpoints.up('xl'))
+    const mobile = useMediaQuery(theme.breakpoints.up('lg'))
     return (
         <Box
             id="home"

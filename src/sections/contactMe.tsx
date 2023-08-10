@@ -70,7 +70,7 @@ export const ContactMe: React.FC<ContactMeProp> = () => {
     const {isDarkMode} = useDarkMode();
     const classes = useStyles();
     const theme = useTheme();
-    const desktop = useMediaQuery(theme.breakpoints.up('xl'))
+    const desktop = useMediaQuery(theme.breakpoints.up('lg'))
     const [submitted, setSubmitted] = useState(false);
     const [formValues, setFormValues] = useState(defaultValues);
     const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {

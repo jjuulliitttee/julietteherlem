@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 export const TopBar: React.FC<TopBarProp> = () => {
     const classes = useStyles();
     const theme = useTheme();
-    const mobile = useMediaQuery(theme.breakpoints.up('xl'))
+    const mobile = useMediaQuery(theme.breakpoints.up('lg'))
     const match = useLocation();
     const project = Boolean(match.pathname !==  "/");
     return (

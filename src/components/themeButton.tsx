@@ -14,7 +14,7 @@ export function ThemeButton(){
   const classes = useStyles();
   const { isDarkMode, toggle} = useDarkMode()
   const theme = useTheme();
-  const desktop = useMediaQuery(theme.breakpoints.up('xl'))
+  const desktop = useMediaQuery(theme.breakpoints.up('lg'))
 
   
   return (

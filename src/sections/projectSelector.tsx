@@ -37,17 +37,26 @@ export const ProjectSelector: React.FC<projectSelectorProp> = () => {
   const [projectType, setProjectType] = useState<ProjectType | "">("");
   const classes = useStyles();
   const theme = useTheme();
-  const desktop = useMediaQuery(theme.breakpoints.up('xl'))
+  const desktop = useMediaQuery(theme.breakpoints.up('lg'))
   
   var projectIndex: number[] = [];
   if (!projectType)
-    projectIndex = Array.from(Array(selectEverything ? projects.length : 4 ).keys());
+    projectIndex = Array.from(Array(projects.length).keys());
   else {
     for (var i = 0; i < projects.length; i++) {
       if (projects[i].type === projectType)
         projectIndex.push(i);
     }
   }
+  projectIndex.sort((a:number, b:number) => {
+    if (projects[a].order > projects[b].order)
+      return 1;
+    if (projects[a].order < projects[b].order)
+      return -1;
+    return 0;
+  })
+  if (!selectEverything)
+    projectIndex = projectIndex.slice(0,4);
   projectIndex = projectIndex.filter(index => !projects[index].hidden)
     return (
     <div

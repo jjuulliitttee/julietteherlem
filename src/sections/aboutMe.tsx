@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 export const AboutMe: React.FC<AboutMeProp> = () => {
   const classes = useStyles();
   const theme = useTheme();
-  const desktop = useMediaQuery(theme.breakpoints.up('xl'))
+  const desktop = useMediaQuery(theme.breakpoints.up('lg'))
   return (
   <div
     id="about"

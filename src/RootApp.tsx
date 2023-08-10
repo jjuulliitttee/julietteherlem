@@ -6,8 +6,19 @@ import { ProjectSelector } from './sections/projectSelector';
 import { AboutMe } from './sections/aboutMe';
 import { ContactMe } from './sections/contactMe';
 import { Home } from './sections/home';
-import { BrowserRouter, Route, Switch} from 'react-router-dom';
+import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import { ProjectPage } from './components/project';
+
+const App = () => {
+  return (
+    <>
+      <Home/>
+      <ProjectSelector/>
+      <AboutMe/>
+      <ContactMe/>
+    </>
+  )
+}
 
 function RootApp() {
   const {isDarkMode} = useDarkMode();
@@ -75,19 +86,12 @@ function RootApp() {
   return (
     <ThemeProvider theme={isDarkMode? darkTheme: lightTheme}>
         <Box minHeight="100vh" overflow="hidden">
-          <BrowserRouter basename="/jherlem">
+          <BrowserRouter>
           <TopBar/>
-            <Switch>
-              <Route path="/project/:id">
-                <ProjectPage/>
-              </Route>
-              <Route path="/">
-                <Home/>
-                <ProjectSelector/>
-                <AboutMe/>
-                <ContactMe/>
-              </Route>
-            </Switch>
+            <Routes>
+              <Route path="/project/:id" element={<ProjectPage/>}/>
+              <Route path="/" element={<App/>}/>
+            </Routes>
           </BrowserRouter>
         </Box>
     </ThemeProvider>

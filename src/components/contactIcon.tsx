@@ -1,11 +1,12 @@
 import { Box, Grid, Link, Popover} from '@material-ui/core';
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 
 export interface ContactIconProps {
     src: string
     alt: string
     link?: string
     style: React.CSSProperties;
+    children: ReactNode
 }
 
 export const ContactIcon: React.FC<ContactIconProps> = ({

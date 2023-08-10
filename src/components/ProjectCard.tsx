@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/styles";
 import { ProjectType } from "../entities/ProjectType";
 import projects from "../constants/projects";
 import { Grid } from "@mui/material";
-import {useHistory} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 interface ProjectCardProps {
   className?: string;
@@ -40,6 +40,7 @@ const useStyles = makeStyles({
     tagbox: {
       marginTop: "23px",
       marginLeft: "28px",
+      marginRight: "28px",
       paddingTop:"5px",
       paddingBottom:"5px",
       paddingLeft:"22px",
@@ -100,15 +101,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   everything,
   confidential
 }) => {
-    if (!confidential)
-      var {name, type} = projects[index];
+      const {name, type} = projects[index];
     var [over, setOver] = useState(false);
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const props = {index, confidential};
     const classes = useStyles(props);
-    const history = useHistory();
+    const navigate = useNavigate();
     const theme = useTheme();
     const desktop = useMediaQuery(theme.breakpoints.up('lg'))
   return (
@@ -118,14 +118,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           if (type === ProjectType.ILLUSTRATION)
             handleOpen()
           else if (index < projects.length) {
-            history.push(`/project/${index}`)
+            navigate(`/project/${index}`)
           }
         }}
         onMouseEnter={() => setOver(true)}
         onMouseLeave={() => setOver(false)}
         sx={desktop ? {
-          height: "253px",
-          width: "334px",
+          height: "25vh",
+          width: "100%",
         } : {
           width: "100%",
           paddingTop:"75%"

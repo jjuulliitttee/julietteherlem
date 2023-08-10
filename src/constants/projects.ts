@@ -18,16 +18,19 @@ interface Project {
     urlType?: LinkType,
     hidden?: boolean,
     confidential?: boolean,
-    content?: Content
+    content?: Content,
+    order: Number
 }
 
 const projects: Project[] = [
     {
         name: "Explore",
+        order: 18,
         type:ProjectType.ILLUSTRATION
     },
     {
         name:"Bloom",
+        order: 19,
         type:ProjectType.GRAPHIC,
         content: {
             fullType: "Graphic Design",
@@ -43,6 +46,7 @@ const projects: Project[] = [
     },
     {
         name: "Bring and eat",
+        order: 3,
         type:ProjectType.UIUX,
         content: {
             fullType: "UI / UX",
@@ -59,6 +63,7 @@ const projects: Project[] = [
     },
     {
         name: "Gilles Massé website",
+        order: 4,
         type:ProjectType.UIUX,
         content: {
             fullType: "UI / UX - Redesign",
@@ -74,6 +79,7 @@ const projects: Project[] = [
     },
     {
         name: "Square Room",
+        order: 5,
         type:ProjectType.GRAPHIC,
         content: {
             fullType: "Graphic Design",
@@ -89,6 +95,7 @@ const projects: Project[] = [
     },
     {
         name:"Intuitive Robot",
+        order: 6,
         type:ProjectType.AUDIOVISUAL,
         url:"https://vimeo.com/313771129",
         urlType: LinkType.VIDEO,
@@ -105,14 +112,17 @@ const projects: Project[] = [
     },
     {
         name: "Bestiary",
+        order: 7,
         type:ProjectType.ILLUSTRATION
     },
     {
         name: "Ray",
+        order: 8,
         type:ProjectType.ILLUSTRATION
     },
     {
         name: "Splash light",
+        order: 9,
         type:ProjectType.GAME,
         url:"https://youtu.be/E7Dmd5YXlgQ",
         urlType: LinkType.VIDEO,
@@ -129,6 +139,7 @@ const projects: Project[] = [
     },
     {
         name: "Patatap",
+        order: 10,
         type:ProjectType.AUDIOVISUAL,
         url:"https://ateliernum.github.io/projet_patatap_1819/Herlem_Juliette/index.html",
         urlType: LinkType.PROTOTYPE_DESKTOP,
@@ -146,6 +157,7 @@ const projects: Project[] = [
     },
     {
         name: "Together",
+        order: 11,
         type:ProjectType.GAME,
         url:"https://youtu.be/Z7zpWL3cr5k",
         urlType: LinkType.VIDEO,
@@ -162,6 +174,7 @@ const projects: Project[] = [
     },
     {
         name: "Neil Wilson website",
+        order: 12,
         type:ProjectType.UIUX,
         hidden: true,
         content: {
@@ -179,6 +192,7 @@ const projects: Project[] = [
     },
     {
         name: "Black Swan",
+        order: 13,
         type:ProjectType.GRAPHIC,
         content: {
             fullType: "Graphic Design",
@@ -193,6 +207,7 @@ const projects: Project[] = [
     },
     {
         name: "DigiCamp",
+        order: 14,
         type:ProjectType.UIUX,
         url:"https://youtu.be/QDk8v1Kly98",
         urlType: LinkType.VIDEO,
@@ -211,18 +226,22 @@ const projects: Project[] = [
     },
     {
         name: "Depreciated",
+        order: 15,
         type: ProjectType.ILLUSTRATION
     },
     {
         name: "Wrath",
+        order: 16,
         type:ProjectType.ILLUSTRATION
     },
     {
         name: "Relativity",
+        order: 17,
         type:ProjectType.ILLUSTRATION
     },
     {
         name: "Comapper",
+        order: 1,
         type:ProjectType.UIUX,
         url:"https://www.figma.com/proto/OwjjvdOa8MGLxHb99lReP4/Co'Mapper?page-id=0%3A1&node-id=3%3A5130&viewport=1448%2C373%2C0.08&scaling=scale-down&starting-point-node-id=3%3A5078",
         urlType: LinkType.PROTOTYPE,
@@ -243,6 +262,7 @@ const projects: Project[] = [
     },
     {
         name: "Effet Papillon",
+        order: 2,
         type:ProjectType.GAME,
         url:"https://4cbf4010-8f8d-4281-beb3-97a13dd6e5be.filesusr.com/ugd/6fd505_725b91ed188a4062bdd7513db39213e2.pdf",
         urlType: LinkType.PROTOTYPE,

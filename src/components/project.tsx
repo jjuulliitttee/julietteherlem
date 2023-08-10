@@ -6,12 +6,11 @@ import { useEffect } from "react";
 import { BootstrapButton } from "../components/MyButton";
 import projects from '../constants/projects';
 import { ProjectType } from "../entities/ProjectType";
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import {Link as Lien} from 'react-router-dom';
 import goBackPicDark from '../assets/GoBackDark.png';
 import goBackPicLight from '../assets/GoBackLight.png';
 import { useDarkMode } from 'usehooks-ts';
-import { LinkType } from "../entities/LinkType";
 
 interface ProjectPageProps {}
 
@@ -60,11 +59,14 @@ export const ProjectPage: React.FC<ProjectPageProps> = () => {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
-    const theme = useTheme();
-    const desktop = useMediaQuery(theme.breakpoints.up('xl'))
-    const {isDarkMode} = useDarkMode();
+    const navigate = useNavigate();
     const {id} = useParams<ProjectParams>();
-    const index: number = +id;
+    if (!id)
+      navigate("/project/0");
+    const theme = useTheme();
+    const desktop = useMediaQuery(theme.breakpoints.up('lg'))
+    const {isDarkMode} = useDarkMode();
+    const index: number = +id!;
     const classes = useStyles();
     var {name, type} = projects[index];
     if (projects[index].url)
@@ -177,7 +179,7 @@ export const ProjectPage: React.FC<ProjectPageProps> = () => {
             <Img src={process.env.PUBLIC_URL + elem} style={{width:"10%"}}/>
             ))}
         </Stack>
-        {url && projects[index].urlType !== LinkType.PROTOTYPE_DESKTOP && <BootstrapButton
+        {url && projects[index].name !== "Patatap" && <BootstrapButton
             style={{backgroundColor: "#20E0EE", marginTop:"4.09vh"}}
             variant="contained"
             href={url}
