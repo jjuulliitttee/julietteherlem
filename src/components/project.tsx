@@ -85,7 +85,7 @@ export const ProjectPage: React.FC<ProjectPageProps> = () => {
       >
       {desktop ?
       <div>
-      <Lien className={classes.customLink} style={{ textDecoration: 'none'}} to="/">
+      <Lien className={classes.customLink} style={{ textDecoration: 'none'}} to="/julietteherlem">
         <Stack direction="row" spacing={1} className={classes.goBackButton} >
           <img alt="GoBackPic" style={{width:"1.56vw", height:"2.778vh"}} src={isDarkMode ? goBackPicDark : goBackPicLight}/>
           <Typography style={{marginTop:"0.5vh"}} className={classes.projectDesc}>
