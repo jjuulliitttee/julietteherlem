@@ -86,7 +86,7 @@ function RootApp() {
   return (
     <ThemeProvider theme={isDarkMode? darkTheme: lightTheme}>
         <Box minHeight="100vh" overflow="hidden">
-          <BrowserRouter basename='/julietteherlem'>
+          <BrowserRouter>
           <TopBar/>
             <Routes>
               <Route path="/project/:id" element={<ProjectPage/>}/>
