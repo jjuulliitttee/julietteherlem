@@ -31,6 +31,7 @@
     "web-vitals": "^3.4.0"
   },
   "scripts": {
+    "deploy": "node_modules/gh-pages/bin/gh-pages.js -b ghpages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

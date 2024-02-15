@@ -6,7 +6,7 @@ import { ProjectSelector } from './sections/projectSelector';
 import { AboutMe } from './sections/aboutMe';
 import { ContactMe } from './sections/contactMe';
 import { Home } from './sections/home';
-import { BrowserRouter, Route, Routes} from 'react-router-dom';
+import { HashRouter, Route, Routes} from 'react-router-dom';
 import { ProjectPage } from './components/project';
 
 const App = () => {
@@ -86,13 +86,13 @@ function RootApp() {
   return (
     <ThemeProvider theme={isDarkMode? darkTheme: lightTheme}>
         <Box minHeight="100vh" overflow="hidden">
-          <BrowserRouter>
+          <HashRouter>
           <TopBar/>
             <Routes>
               <Route path="/project/:id" element={<ProjectPage/>}/>
               <Route path="/" element={<App/>}/>
             </Routes>
-          </BrowserRouter>
+          </HashRouter>
         </Box>
     </ThemeProvider>
   );
