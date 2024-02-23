@@ -17,9 +17,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   selectorLinks: {
     color: "#FFFFFF",
-    fontWeight:500,
-    fontFamily:"Red Hat Display, sans-serif",
-    fontSize: "2.31vh",
+    fontWeight: 500,
+    //fontFamily:"Red Hat Display, sans-serif",
     '&:hover': {
       color: "#F35A50",
       fontWeight: 700
@@ -79,11 +78,21 @@ export const ProjectSelector: React.FC<projectSelectorProp> = () => {
           marginTop:"9.88vh",
           }}>
           <Stack spacing={7} direction="row" justifyContent="center">
-            <Link onClick={() => {setProjectType(ProjectType.UIUX); setSelectEverything(false);}} component="button" color="inherit" underline="hover" className={classes.selectorLinks}>UI/UX</Link>
-            <Link onClick={() => {setProjectType(ProjectType.GRAPHIC); setSelectEverything(false);}} component="button" color="inherit" underline="hover" className={classes.selectorLinks}>Graphic</Link>
-            <Link onClick={() => {setProjectType(ProjectType.AUDIOVISUAL); setSelectEverything(false);}} component="button" color="inherit" underline="hover" className={classes.selectorLinks}>Audiovisual</Link>
-            <Link onClick={() => {setProjectType(ProjectType.ILLUSTRATION); setSelectEverything(false);}} component="button" color="inherit"  underline="hover" className={classes.selectorLinks}>Illustration</Link>
-            <Link onClick={() => {setProjectType(ProjectType.GAME); setSelectEverything(false);}} component="button" color="inherit"  underline="hover" className={classes.selectorLinks}>Game</Link>
+            <Typography variant="subtitle1">
+              <Link onClick={() => {setProjectType(ProjectType.UIUX); setSelectEverything(false);}} component="button" color="inherit" underline="hover" variant="inherit" className={classes.selectorLinks}>UI/UX</Link>
+            </Typography>
+            <Typography variant="subtitle1">
+              <Link onClick={() => {setProjectType(ProjectType.GRAPHIC); setSelectEverything(false);}} component="button" color="inherit" underline="hover" variant="inherit" className={classes.selectorLinks}>Graphic</Link>
+            </Typography>
+            <Typography variant="subtitle1">
+              <Link onClick={() => {setProjectType(ProjectType.AUDIOVISUAL); setSelectEverything(false);}} component="button" color="inherit" underline="hover" variant="inherit" className={classes.selectorLinks}>Audiovisual</Link>
+            </Typography>
+            <Typography variant="subtitle1">
+              <Link onClick={() => {setProjectType(ProjectType.ILLUSTRATION); setSelectEverything(false);}} component="button" color="inherit"  underline="hover" variant="inherit" className={classes.selectorLinks}>Illustration</Link>
+              </Typography>
+            <Typography variant="subtitle1">
+              <Link onClick={() => {setProjectType(ProjectType.GAME); setSelectEverything(false);}} component="button" color="inherit"  underline="hover" variant="inherit" className={classes.selectorLinks}>Game</Link>
+            </Typography>
           </Stack>
           </Box> :
           <Box sx={{
