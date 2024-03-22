@@ -54,9 +54,9 @@ export const ProjectSelector: React.FC<projectSelectorProp> = () => {
       return -1;
     return 0;
   })
+  projectIndex = projectIndex.filter(index => !projects[index].hidden)
   if (!selectEverything)
     projectIndex = projectIndex.slice(0,4);
-  projectIndex = projectIndex.filter(index => !projects[index].hidden)
     return (
     <div
       id="Project-Selector"
@@ -101,19 +101,29 @@ export const ProjectSelector: React.FC<projectSelectorProp> = () => {
             }}>
             <Grid container spacing={1} direction="row" justifyContent="center" textAlign="center">
               <Grid item xs={12} sm={4}>
-                <Link onClick={() => {setProjectType(ProjectType.UIUX); setSelectEverything(false);}} component="button" color="inherit" underline="hover" className={classes.selectorLinks}>UI/UX</Link>
+                <Typography variant="subtitle1">
+                  <Link onClick={() => {setProjectType(ProjectType.UIUX); setSelectEverything(false);}} component="button" color="inherit" underline="hover" variant="inherit" className={classes.selectorLinks}>UI/UX</Link>
+                </Typography>
               </Grid>
               <Grid item xs={12} sm={4}>
-                <Link onClick={() => {setProjectType(ProjectType.GRAPHIC); setSelectEverything(false);}} component="button" color="inherit" underline="hover" className={classes.selectorLinks}>Graphic</Link>
+                <Typography variant="subtitle1">
+                  <Link onClick={() => {setProjectType(ProjectType.GRAPHIC); setSelectEverything(false);}} component="button" color="inherit" underline="hover" variant="inherit" className={classes.selectorLinks}>Graphic</Link>
+                </Typography>
               </Grid >
               <Grid item xs={12} sm={4}>
-                <Link onClick={() => {setProjectType(ProjectType.AUDIOVISUAL); setSelectEverything(false);}} component="button" color="inherit" underline="hover" className={classes.selectorLinks}>Audiovisual</Link>
+                <Typography variant="subtitle1">
+                  <Link onClick={() => {setProjectType(ProjectType.AUDIOVISUAL); setSelectEverything(false);}} component="button" color="inherit" underline="hover" variant="inherit" className={classes.selectorLinks}>Audiovisual</Link>
+                </Typography>
               </Grid>
               <Grid item xs={12} sm={4}>
-                <Link onClick={() => {setProjectType(ProjectType.ILLUSTRATION); setSelectEverything(false);}} component="button" color="inherit"  underline="hover" className={classes.selectorLinks}>Illustration</Link>
+                <Typography variant="subtitle1">
+                  <Link onClick={() => {setProjectType(ProjectType.AUDIOVISUAL); setSelectEverything(false);}} component="button" color="inherit" underline="hover" variant="inherit" className={classes.selectorLinks}>Audiovisual</Link>
+                </Typography>
               </Grid>
               <Grid item xs={12} sm={4}>
-                <Link onClick={() => {setProjectType(ProjectType.GAME); setSelectEverything(false);}} component="button" color="inherit"  underline="hover" className={classes.selectorLinks}>Game</Link>
+                <Typography variant="subtitle1">
+                  <Link onClick={() => {setProjectType(ProjectType.GAME); setSelectEverything(false);}} component="button" color="inherit"  underline="hover" variant="inherit" className={classes.selectorLinks}>Game</Link>
+                </Typography>
               </Grid>
             </Grid>
           </Box>
