@@ -36,7 +36,7 @@ const projects: Project[] = [
             fullType: "Graphic Design",
             desc: "During an internship in United Kingdom, I worked on the brand identity of a new agency called Bloom.",
             mission: "create logo, business card, patern and mock up.",
-            date: "October 2019 | alone | 2 weeks",
+            date: "October 2019 | Individual Project | 2 weeks",
             techno: [
                 "/techIcon/illustrator.jpg",
                 "/techIcon/logo-photoshop-original.png",
@@ -85,7 +85,7 @@ const projects: Project[] = [
             fullType: "Graphic Design",
             desc: "During an internship in the UK, I designed a new brand identity for a new agency called Square room.",
             mission: "Find a name, create logo, business card, patern and mock up.",
-            date: "October 2019 | alone | 2 weeks",
+            date: "October 2019 | Individual Project | 2 weeks",
             techno: [
                 "/techIcon/illustrator.jpg",
                 "/techIcon/logo-photoshop-original.png",
@@ -147,7 +147,7 @@ const projects: Project[] = [
             fullType: "Audiovisual - Experience",
             desc: "I have created a synesthesia experience allying sound and image: each letter of the keyboard make a sound and an animation.",
             mission: "Code the experience, imagine the shapes and add music.",
-            date: "January 2019 | alone | 2 months",
+            date: "January 2019 | Individual Project | 2 months",
             techno: [
                 "/techIcon/javascript.png",
             ],
@@ -181,7 +181,7 @@ const projects: Project[] = [
             fullType: "UI / UX",
             desc: "During an internship in Newcastle upon Tyne, I designed desktop and mobile interfaces for Neil Wilson brand.",
             mission: "Research, wireframe, user experience and user interface, graphics, prototype, mock-up...",
-            date: "August 2019 | alone | 3 weeks",
+            date: "August 2019 | Individual Project | 3 weeks",
             techno: [
                 "/techIcon/xd.png",
                 "/techIcon/illustrator.jpg",
@@ -198,7 +198,7 @@ const projects: Project[] = [
             fullType: "Graphic Design",
             desc: "Modernization and redesign of a pre-existing logo. I designed this logo for a client during an internship in Newcastle upon Tyne (UK).",
             mission: "Redesign the logo, and create mock up",
-            date: "October 2019 | alone | 10 days",
+            date: "October 2019 | Individual Project | 10 days",
             techno: [
                 "/techIcon/affinity.png",
             ],
@@ -213,9 +213,9 @@ const projects: Project[] = [
         urlType: LinkType.VIDEO,
         content: {
             fullType: "UI / UX",
-            desc: "For a competition, we proposed a service that permits users and nearby restaurants to avoid food waste.",
-            mission: "Creation of the iconography, and the user experience.",
-            date: "August 2019 | 5 co-workers | 3 months",
+            desc: "During the coronavirus crisis, a friend and I designed a service to improve distance learning.",
+            mission: "My mission: Develop the user experience in team. In charge of the isometric 3d illustrations.",
+            date: "March 2020 | 2 co-workers | 3 months",
             techno: [
                 "/techIcon/figma.png",
                 "/techIcon/illustrator.jpg",
@@ -270,7 +270,7 @@ const projects: Project[] = [
             fullType: "Game - Graphic - UI UX",
             desc: "Effet Papillon (Butterfly Effect) is a fun and educational board game, which raises awareness about threatened and depreciated species. This game is my end of studies project, conceived and designed during my master's degree.",
             mission: "Game design, content, UI UX and graphic design, print, users and experts interviews and tests, prototype... (the whole project)",
-            date: "February 2022 | Alone | 1 year",
+            date: "February 2022 | Individual Project | 1 year",
             techno: [
                 "/techIcon/figma.png",
                 "/techIcon/illustrator.jpg",
