@@ -1,23 +1,24 @@
 {
   "files": {
     "main.css": "/julietteherlem/static/css/main.e6c13ad2.css",
-    "main.js": "/julietteherlem/static/js/main.93874848.js",
+    "main.js": "/julietteherlem/static/js/main.f08cb2f0.js",
     "static/js/496.4ea3c937.chunk.js": "/julietteherlem/static/js/496.4ea3c937.chunk.js",
     "static/media/aboutMe.png": "/julietteherlem/static/media/aboutMe.0f97ce387bafc69c4a19.png",
     "static/media/imageintro.png": "/julietteherlem/static/media/imageintro.ee498b6ac6c0736455ce.png",
     "static/media/ThankYouPicDark.png": "/julietteherlem/static/media/ThankYouPicDark.b7b616fe5ca16d8fdb22.png",
     "static/media/ThankYouPicLight.png": "/julietteherlem/static/media/ThankYouPicLight.76126a41852f7b17a754.png",
     "static/media/Group-1.svg": "/julietteherlem/static/media/Group-1.747f2d953608c54fc754a3448975846e.svg",
+    "static/media/Sun.svg": "/julietteherlem/static/media/Sun.8dc4ece23c1acd468ebcf183bf1f484a.svg",
     "static/media/Group 8.svg": "/julietteherlem/static/media/Group 8.2d88fa3930f0c21e0176639e7fadfd75.svg",
     "static/media/Group.svg": "/julietteherlem/static/media/Group.5e7ef132351dfac4743cee995a78be6f.svg",
     "index.html": "/julietteherlem/index.html",
-    "static/media/Group 7.svg": "/julietteherlem/static/media/Group 7.52c6670261b67ffb369d93bef7f5ae61.svg",
+    "static/media/Moon.svg": "/julietteherlem/static/media/Moon.9d9d7a2b2dbb7549b0702486d10b93ac.svg",
     "main.e6c13ad2.css.map": "/julietteherlem/static/css/main.e6c13ad2.css.map",
-    "main.93874848.js.map": "/julietteherlem/static/js/main.93874848.js.map",
+    "main.f08cb2f0.js.map": "/julietteherlem/static/js/main.f08cb2f0.js.map",
     "496.4ea3c937.chunk.js.map": "/julietteherlem/static/js/496.4ea3c937.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.93874848.js"
+    "static/js/main.f08cb2f0.js"
   ]
 }
