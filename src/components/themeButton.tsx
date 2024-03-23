@@ -1,8 +1,7 @@
 import { IconButton, makeStyles, useMediaQuery, useTheme } from '@material-ui/core';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
+import Moon from '../assets/Moon.svg';
+import Sun from '../assets/Sun.svg';
 import {useDarkMode} from 'usehooks-ts';
-
 
 const useStyles = makeStyles({
   button: {
@@ -15,11 +14,11 @@ export function ThemeButton(){
   const { isDarkMode, toggle} = useDarkMode()
   const theme = useTheme();
   const desktop = useMediaQuery(theme.breakpoints.up('lg'))
+  const size = desktop ? {width: "2.1vw", height:"3.5vh"} : {width:"70px"}
 
-  
   return (
-    <IconButton onClick={toggle} style={{fontSize:desktop ? "28px" : "70px"}} className={classes.button}>
-      {isDarkMode ? <Brightness7Icon fontSize='inherit'/> : <Brightness4Icon fontSize='inherit' sx={{color:"#000"}}/>}
+    <IconButton onClick={toggle} className={classes.button}>
+      {isDarkMode ? <img alt="sun" src={Sun} style={size}/> : <img alt='moon' src={Moon} style={size}/>}
     </IconButton>
   );
 }

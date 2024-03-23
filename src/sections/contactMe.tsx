@@ -3,7 +3,6 @@ import { Input, styled, Typography, useMediaQuery, useTheme} from "@material-ui/
 import { makeStyles } from "@material-ui/styles";
 import { Theme, Grid, Zoom } from "@mui/material";
 import { Box } from "@mui/system"
-import iconInstagram from '../assets/Group 7.svg'
 import iconLinkedin from '../assets/Group 8.svg'
 import iconPhone from '../assets/Group.svg'
 import iconMail from '../assets/Group-1.svg'
@@ -120,13 +119,6 @@ export const ContactMe: React.FC<ContactMeProp> = () => {
                       src={iconLinkedin}
                       style={{width:"1.635vw", height:"2.907vh"}}
                       link="https://www.linkedin.com/in/juliette-herlem-b4bb03177"
-                    >
-                    </ContactIcon>
-                    <ContactIcon
-                      alt="instagram-icon"
-                      src={iconInstagram}
-                      style={{width:"1.635vw", height:"2.907vh"}}
-                      link="https://www.instagram.com/juliettehrm/"
                     >
                     </ContactIcon>
                     <ContactIcon
@@ -248,13 +240,6 @@ export const ContactMe: React.FC<ContactMeProp> = () => {
                     src={iconLinkedin}
                     style={{width:"70px"}}
                     link="https://www.linkedin.com/in/juliette-herlem-b4bb03177"
-                  >
-                  </ContactIcon>
-                  <ContactIcon
-                    alt="instagram-icon"
-                    src={iconInstagram}
-                    style={{width:"70px"}}
-                    link="https://www.instagram.com/juliettehrm/"
                   >
                   </ContactIcon>
                   <ContactIcon

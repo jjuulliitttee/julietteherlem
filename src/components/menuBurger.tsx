@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import LunchDiningIcon from '@mui/icons-material/LunchDining';
+import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import { IconButton, Link, Menu, MenuItem, Typography } from '@material-ui/core';
 import { Link as Scroll } from 'react-scroll';
 import {Link as Lien} from 'react-router-dom';
@@ -53,7 +53,7 @@ const classes = useStyles();
         onClick={handleClick}
         className={classes.icon}
       >
-        {isDarkMode ? <LunchDiningIcon  fontSize="inherit"/> : <LunchDiningIcon sx={{color:"#000"}} fontSize="inherit"/>}
+        {isDarkMode ? <MenuRoundedIcon  fontSize="inherit"/> : <MenuRoundedIcon sx={{color:"#000"}} fontSize="inherit"/>}
       </IconButton>
       <Menu
         id="basic-menu"

@@ -1,5 +1,4 @@
 import { Box, Grid, makeStyles, styled, Theme, Typography, useMediaQuery, useTheme } from '@material-ui/core';
-import iconInstagram from '../assets/Group 7.svg'
 import iconLinkedin from '../assets/Group 8.svg'
 import iconPhone from '../assets/Group.svg'
 import iconMail from '../assets/Group-1.svg'
@@ -66,13 +65,6 @@ export const Home: React.FC<HomeProp> = () => {
                     >
                     </ContactIcon>
                     <ContactIcon
-                      alt="instagram-icon"
-                      src={iconInstagram}
-                      style={{width:"1.635vw", height:"2.907vh"}}
-                      link="https://www.instagram.com/juliettehrm/"
-                    >
-                    </ContactIcon>
-                    <ContactIcon
                       alt="phon-icon"
                       src={iconPhone}
                       style={{width:"1.635vw", height:"2.907vh"}}
@@ -119,13 +111,6 @@ export const Home: React.FC<HomeProp> = () => {
                       src={iconLinkedin}
                       style={{width:"70px"}}
                       link="https://www.linkedin.com/in/juliette-herlem-b4bb03177"
-                    >
-                    </ContactIcon>
-                    <ContactIcon
-                      alt="instagram-icon"
-                      src={iconInstagram}
-                      style={{width:"70px"}}
-                      link="https://www.instagram.com/juliettehrm/"
                     >
                     </ContactIcon>
                     <ContactIcon
