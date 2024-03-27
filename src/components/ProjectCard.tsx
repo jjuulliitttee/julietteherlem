@@ -29,10 +29,11 @@ const Img = styled('img')({
 const useStyles = makeStyles({
     thumbnail: (props: Props) => ({
       backgroundSize: "cover",
+      backgroundPosition: "center",
       boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
       borderRadius: "25px",
       backgroundRepeat: "no-repeat",
-      backgroundImage: `url(${`thumbails/project-${props.index}.png`})`,
+      backgroundImage: `url(${`http://localhost:3000/julietteherlem/thumbails/project-${props.index}.png`})`,
       '&:hover': {
         backgroundImage: `${props.confidential ? `url(thumbails/confidential.png), ` : ``}linear-gradient(180deg, rgba(243, 90, 80, 0.9) 0%, rgba(243, 90, 80, 0.9) 100%), url(${`thumbails/project-${props.index}.png`})`
       }
